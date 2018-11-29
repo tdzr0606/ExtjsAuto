@@ -97,7 +97,7 @@ public class CreateController extends CreateBase
         sb.append("     * 获取分页信息").append(Tools.lineSeparator);
         sb.append("     *").append(Tools.lineSeparator);
         sb.append("     * @param page").append(Tools.lineSeparator);
-        sb.append("     * @param limit").append(Tools.lineSeparator);
+        sb.append("     * @param rows").append(Tools.lineSeparator);
         sb.append("     * @param key").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
@@ -105,9 +105,9 @@ public class CreateController extends CreateBase
                 .append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public Page<").append(className).append("> findPage(").append(Tools.lineSeparator);
-        sb.append("            @RequestParam(value = \"rows\", required = true, defaultValue = \"1\") Integer " + "rows,")
+        sb.append("            @RequestParam(value = \"rows\", required = true, defaultValue = \"40\") Integer " + "rows,")
                 .append(Tools.lineSeparator);
-        sb.append("            @RequestParam(value = \"page\", required = true, defaultValue = \"40\") Integer " + "page,")
+        sb.append("            @RequestParam(value = \"page\", required = true, defaultValue = \"1\") Integer " + "page,")
                 .append(Tools.lineSeparator);
         sb.append("            @RequestParam(value = \"key\", required = false, defaultValue = \"\") String key)")
                 .append(Tools.lineSeparator);
