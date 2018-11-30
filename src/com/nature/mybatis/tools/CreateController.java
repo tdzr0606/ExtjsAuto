@@ -53,7 +53,7 @@ public class CreateController extends CreateBase
         sb.append("import org.springframework.beans.factory.annotation.Autowired;").append(Tools.lineSeparator);
         sb.append("import org.springframework.stereotype.Controller;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.RequestMapping;").append(Tools.lineSeparator);
-        sb.append("import org.springframework.web.bind.annotation.RequestMethod;").append(Tools.lineSeparator);
+        //        sb.append("import org.springframework.web.bind.annotation.RequestMethod;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.RequestParam;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.ResponseBody;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.servlet.ModelAndView;").append(Tools.lineSeparator);
@@ -72,8 +72,6 @@ public class CreateController extends CreateBase
         sb.append("@Controller").append(Tools.lineSeparator);
         sb.append("public class ").append(className).append("Controller extends BaseController").append(Tools.lineSeparator);
         sb.append("{").append(Tools.lineSeparator);
-        sb.append("    @Autowired").append(Tools.lineSeparator);
-        sb.append("    HttpServletRequest request;").append(Tools.lineSeparator);
         sb.append("    @Autowired").append(Tools.lineSeparator);
         sb.append("    ").append(className).append("Service ").append(Tools.smallFirstChar(className)).append("Service;")
                 .append(Tools.lineSeparator);
@@ -163,8 +161,9 @@ public class CreateController extends CreateBase
         sb.append("            @RequestParam(value = \"ids\", required = true, defaultValue = \"0\") String ids)")
                 .append(Tools.lineSeparator);
         sb.append("    {").append(Tools.lineSeparator);
-        sb.append("        return resultBoolWrapper(").append(Tools.smallFirstChar(className))
-                .append("Service.deleteByIds(ids.split(\",\")), \"信息删除成功\", \"信息删除失败\", null);").append(Tools.lineSeparator);
+        sb.append("         ").append(Tools.smallFirstChar(className)).append("Service.deleteByIds(ids.split(\",\"));")
+                .append(Tools.lineSeparator);
+        sb.append("        return resultBoolWrapper(true, \"信息删除成功\", \"信息删除失败\", null);").append(Tools.lineSeparator);
         sb.append("    }").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append("    /**").append(Tools.lineSeparator);

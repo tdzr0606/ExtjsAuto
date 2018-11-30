@@ -17,7 +17,8 @@ public class CreateMapper extends CreateBase
     private String packageName;
     private String projectName;
 
-    public CreateMapper(String className, String tableName, String packageName, String filePath, String projectName, String author)
+    public CreateMapper(String className, String tableName, String packageName, String filePath, String projectName,
+                        String author)
     {
         super.author = author;
         super.className = className;
@@ -50,10 +51,10 @@ public class CreateMapper extends CreateBase
         contentSB.append(Tools.lineSeparator);
         contentSB.append("import ").append(packageName).append(".mybatis.config.MyMapper;").append(Tools.lineSeparator);
         contentSB.append("import ").append(inClassName).append(";").append(Tools.lineSeparator);
-        contentSB.append("import org.apache.ibatis.annotations.Mapper;").append(Tools.lineSeparator);
+        //        contentSB.append("import org.apache.ibatis.annotations.Mapper;").append(Tools.lineSeparator);
         contentSB.append("import org.apache.ibatis.annotations.Param;").append(Tools.lineSeparator);
         contentSB.append("import java.util.List;").append(Tools.lineSeparator);
-        contentSB.append("import java.util.Map;").append(Tools.lineSeparator);
+        //        contentSB.append("import java.util.Map;").append(Tools.lineSeparator);
         contentSB.append(Tools.lineSeparator);
         contentSB.append("/**").append(Tools.lineSeparator);
         contentSB.append(" * ").append(Tools.lineSeparator);
@@ -62,8 +63,8 @@ public class CreateMapper extends CreateBase
         contentSB.append(" * Author:").append(author).append(Tools.lineSeparator);
         contentSB.append(" * Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
         contentSB.append(" */").append(Tools.lineSeparator);
-        contentSB.append("public interface ").append(className).append("Mapper extends MyMapper<").append(className)
-                .append(">").append(Tools.lineSeparator);
+        contentSB.append("public interface ").append(className).append("Mapper extends MyMapper<").append(className).append(">")
+                .append(Tools.lineSeparator);
         contentSB.append("{").append(Tools.lineSeparator);
         contentSB.append("   /**").append(Tools.lineSeparator);
         contentSB.append("    * 查询所有数据").append(Tools.lineSeparator);
