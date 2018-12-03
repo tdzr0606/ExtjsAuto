@@ -117,7 +117,7 @@ public class CreateMapperXml extends CreateBase
             fileContent.append("        select <include refid=\"basicColumn\"/> from ").append(tableName)
                     .append(Tools.lineSeparator);
             fileContent.append("        <where>").append(Tools.lineSeparator);
-            fileContent.append("            <if test=\"key != null\">").append(Tools.lineSeparator);
+            fileContent.append("            <if test=\"key != null and key != '' \">").append(Tools.lineSeparator);
             int keySize = 0;
             for(Map.Entry<String, String> entry : tableContentMap.entrySet())
             {
