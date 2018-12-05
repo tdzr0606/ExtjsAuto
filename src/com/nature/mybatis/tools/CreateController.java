@@ -53,7 +53,7 @@ public class CreateController extends CreateBase
         sb.append("import org.springframework.beans.factory.annotation.Autowired;").append(Tools.lineSeparator);
         sb.append("import org.springframework.stereotype.Controller;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.RequestMapping;").append(Tools.lineSeparator);
-        //        sb.append("import org.springframework.web.bind.annotation.RequestMethod;").append(Tools.lineSeparator);
+        sb.append("import org.springframework.http.MediaType;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.RequestParam;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.ResponseBody;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.servlet.ModelAndView;").append(Tools.lineSeparator);
@@ -99,8 +99,8 @@ public class CreateController extends CreateBase
         sb.append("     * @param key").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className)).append("/list\")")
-                .append(Tools.lineSeparator);
+        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+                .append("/list\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public Page<").append(className).append("> findPage(").append(Tools.lineSeparator);
         sb.append("            @RequestParam(value = \"rows\", required = true, defaultValue = \"40\") Integer " + "rows,")
@@ -120,8 +120,8 @@ public class CreateController extends CreateBase
         sb.append("     * @param ").append(Tools.smallFirstChar(className)).append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className)).append("/new\")")
-                .append(Tools.lineSeparator);
+        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+                .append("/new\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult add(").append(className).append(" ").append(Tools.smallFirstChar(className))
                 .append(")").append(Tools.lineSeparator);
@@ -137,8 +137,8 @@ public class CreateController extends CreateBase
         sb.append("     * @param ").append(Tools.smallFirstChar(className)).append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className)).append("/modify\")")
-                .append(Tools.lineSeparator);
+        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+                .append("/modify\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult modify(").append(className).append(" ").append(Tools.smallFirstChar(className))
                 .append(")").append(Tools.lineSeparator);
@@ -154,8 +154,8 @@ public class CreateController extends CreateBase
         sb.append("     * @param ids").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className)).append("/delete\")")
-                .append(Tools.lineSeparator);
+        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+                .append("/delete\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult delete(").append(Tools.lineSeparator);
         sb.append("            @RequestParam(value = \"ids\", required = true, defaultValue = \"0\") String ids)")
@@ -172,8 +172,8 @@ public class CreateController extends CreateBase
         sb.append("     * @param id").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className)).append("/info\")")
-                .append(Tools.lineSeparator);
+        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+                .append("/info\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult get").append(className).append("ById(").append(Tools.lineSeparator);
         sb.append("            @RequestParam(value = \"id\", required = true, defaultValue = \"0\") Integer id)")
