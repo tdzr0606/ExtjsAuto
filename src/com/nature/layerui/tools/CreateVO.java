@@ -40,8 +40,7 @@ public class CreateVO extends CreateBase
         this.packageName = packageName;
         this.projectName = projectName;
         super.filePath =
-                filePath + Tools.pathSeparator + "java" + Tools.pathSeparator + "pojo" + Tools.pathSeparator +
-                        projectName;
+                filePath + Tools.pathSeparator + "java" + Tools.pathSeparator + "pojo" + Tools.pathSeparator + projectName;
     }
 
     public void createVo()
@@ -92,6 +91,7 @@ public class CreateVO extends CreateBase
             fileContent.append("package ").append(packageName).append(".pojo.").append(projectName).append(";")
                     .append(Tools.lineSeparator);
             fileContent.append(Tools.lineSeparator);
+            fileContent.append("import java.io.Serializable;").append(Tools.lineSeparator);
             fileContent.append(importSB.toString());
             fileContent.append(Tools.lineSeparator);
             fileContent.append("/**").append(Tools.lineSeparator);
@@ -101,7 +101,8 @@ public class CreateVO extends CreateBase
             fileContent.append(" * Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
             fileContent.append(" */ ").append(Tools.lineSeparator);
             fileContent.append(Tools.lineSeparator);
-            fileContent.append("public class ").append(className).append(Tools.lineSeparator);
+            fileContent.append("public class ").append(className).append("  implements Serializable ")
+                    .append(Tools.lineSeparator);
             fileContent.append("{").append(Tools.lineSeparator);
             fileContent.append(propertyContent);
             fileContent.append("}").append(Tools.lineSeparator);
@@ -163,29 +164,24 @@ public class CreateVO extends CreateBase
                             .append(Tools.lineSeparator);
                     importSB.append("import java.sql.Timestamp;").append(Tools.lineSeparator);
                 }
-                propertySB.append("   @JsonSerialize(using = CustomDatetimeChange.class)")
-                        .append(Tools.lineSeparator);
+                propertySB.append("   @JsonSerialize(using = CustomDatetimeChange.class)").append(Tools.lineSeparator);
                 dateTimeCount++;
             }
             propertySB.append("    private ").append(Tools.changeFieldType2JavaType(fieldType)).append(" ")
-                    .append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(";")
-                    .append(Tools.lineSeparator);
+                    .append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(";").append(Tools.lineSeparator);
             methodSB.append("    public ").append(Tools.changeFieldType2JavaType(fieldType)).append(" ")
-                    .append(Tools.changeFieldName2JavaMethodName("get", fieldName)).append("()")
-                    .append(Tools.lineSeparator);
+                    .append(Tools.changeFieldName2JavaMethodName("get", fieldName)).append("()").append(Tools.lineSeparator);
             methodSB.append("    {").append(Tools.lineSeparator);
-            methodSB.append("      return ").append(Tools.changeFieldName2JavaPropertyFieldName(fieldName))
-                    .append(";").append(Tools.lineSeparator);
+            methodSB.append("      return ").append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(";")
+                    .append(Tools.lineSeparator);
             methodSB.append("    }").append(Tools.lineSeparator);
             methodSB.append(Tools.lineSeparator);
-            methodSB.append("    public void ").append(Tools.changeFieldName2JavaMethodName("set", fieldName))
-                    .append("( ").append(Tools.changeFieldType2JavaType(fieldType)).append(" ")
-                    .append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(")")
-                    .append(Tools.lineSeparator);
+            methodSB.append("    public void ").append(Tools.changeFieldName2JavaMethodName("set", fieldName)).append("( ")
+                    .append(Tools.changeFieldType2JavaType(fieldType)).append(" ")
+                    .append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(")").append(Tools.lineSeparator);
             methodSB.append("    {").append(Tools.lineSeparator);
-            methodSB.append("      this.").append(Tools.changeFieldName2JavaPropertyFieldName(fieldName))
-                    .append(" = ").append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(";")
-                    .append(Tools.lineSeparator);
+            methodSB.append("      this.").append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(" = ")
+                    .append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(";").append(Tools.lineSeparator);
             methodSB.append("    }").append(Tools.lineSeparator);
             methodSB.append(Tools.lineSeparator);
         }
