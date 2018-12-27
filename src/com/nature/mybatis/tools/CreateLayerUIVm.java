@@ -322,6 +322,14 @@ public class CreateLayerUIVm extends CreateBase
         sb.append("           active[method] ? active[method].call(this, othis) : '';")
                 .append(Tools.lineSeparator);
         sb.append("     });").append(Tools.lineSeparator);
+
+        sb.append("     // 搜索框 回车键触发  ").append(Tools.lineSeparator);
+        sb.append("     $('#searchKey').on('keyup',function (e){ ").append(Tools.lineSeparator);
+        sb.append("       if(e.keyCode == 13) { ").append(Tools.lineSeparator);
+        sb.append("            $('#searchBtn').click(); ").append(Tools.lineSeparator);
+        sb.append("       }").append(Tools.lineSeparator);
+        sb.append("     });").append(Tools.lineSeparator);
+
         sb.append("     //form submit新建修改事件提交").append(Tools.lineSeparator);
         sb.append("     form.on('submit(").append(Tools.smallFirstChar(className))
                 .append("Form)', function (data) {").append(Tools.lineSeparator);
