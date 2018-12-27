@@ -47,23 +47,12 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("   Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
         sb.append("--%>").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
-        sb.append("<%@ page import=\"java.util.Date\" %>").append(Tools.lineSeparator);
-        sb.append("<%@ page import=\"org.apache.commons.lang.ArrayUtils\" %>").append(Tools.lineSeparator);
-        sb.append("<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>")
-                .append(Tools.lineSeparator);
-        sb.append("<% String[] right = (String[]) request.getAttribute(\"rightArray\");")
-                .append(Tools.lineSeparator);
-        sb.append("   right = new String[]{\"new\", \"modify\", \"delete\"}; %>").append(Tools.lineSeparator);
+        sb.append("<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>").append(Tools.lineSeparator);
         sb.append("<!DOCTYPE html>").append(Tools.lineSeparator);
         sb.append("<jsp:include page=\"../inc/head.jsp\" flush=\"true\"/>").append(Tools.lineSeparator);
         sb.append("<body>").append(Tools.lineSeparator);
         sb.append("<div class=\"layui-layout layui-layout-admin\">").append(Tools.lineSeparator);
-        sb.append("    <jsp:include page=\"/wbkj/menu?sessionId=<%= new Date().getTime()%>\" flush=\"true\">")
-                .append(Tools.lineSeparator);
-        sb.append("        <jsp:param name=\"menuId\" value=\"0\" />").append(Tools.lineSeparator);
-        sb.append("        <jsp:param name=\"activeUrl\" value=\"/wbkj/").append(Tools.smallFirstChar(className))
-                .append("/toPage\" />").append(Tools.lineSeparator);
-        sb.append("    </jsp:include>").append(Tools.lineSeparator);
+        sb.append("    <jsp:include page=\"../inc/menu.jsp\" />").append(Tools.lineSeparator);
         sb.append("    <div class=\"layui-body\" style=\"padding:10px\">").append(Tools.lineSeparator);
         sb.append("        <fieldset class=\"layui-elem-field layui-field-title\"><legend>菜单</legend></fieldset>")
                 .append(Tools.lineSeparator);
@@ -72,12 +61,9 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("            <div class=\"layui-row\">").append(Tools.lineSeparator);
         sb.append("                <div class=\"layui-col-md6\">").append(Tools.lineSeparator);
         sb.append("                    <div class=\"layui-btn-group\">").append(Tools.lineSeparator);
-        sb.append("                <%if(ArrayUtils.contains(right, \"new\")){ %><button class=\"layui-btn\" " +
-                "data-method=\"new\">新建</button><%}%>").append(Tools.lineSeparator);
-        sb.append("                <%if(ArrayUtils.contains(right, \"modify\")){%><button class=\"layui-btn\" " +
-                "data-method=\"modify\">修改</button><%}%>").append(Tools.lineSeparator);
-        sb.append("                <%if(ArrayUtils.contains(right, \"delete\")){%><button class=\"layui-btn\" " +
-                "data-method=\"delete\">删除</button><%}%>").append(Tools.lineSeparator);
+        sb.append("                <button class=\"layui-btn\" data-method=\"new\">新建</button>").append(Tools.lineSeparator);
+        sb.append("                <button class=\"layui-btn\" data-method=\"modify\">修改</button>").append(Tools.lineSeparator);
+        sb.append("                <button class=\"layui-btn\" data-method=\"delete\">删除</button>").append(Tools.lineSeparator);
         sb.append("                    </div>").append(Tools.lineSeparator);
         sb.append("               </div>").append(Tools.lineSeparator);
         sb.append("           <div class=\"layui-col-md6\">").append(Tools.lineSeparator);
@@ -86,14 +72,14 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                  <input class=\"layui-input\" name=\"key\" id=\"searchKey\" " +
                 "autocomplete=\"off\" style=\"width:100%;\">").append(Tools.lineSeparator);
         sb.append("               </div>").append(Tools.lineSeparator);
-        sb.append("               <button class=\"layui-btn\" data-method=\"search\">搜索</button>")
+        sb.append("               <button class=\"layui-btn\" data-method=\"search\" id=\"searchBtn\">搜索</button>")
                 .append(Tools.lineSeparator);
         sb.append("           </div>").append(Tools.lineSeparator);
         sb.append("       </div>").append(Tools.lineSeparator);
         sb.append("     </div>").append(Tools.lineSeparator);
         sb.append("     <table class=\"layui-hidden\" id=\"").append(Tools.smallFirstChar(className))
-                .append("Table\" " + "lay-filter=\"").append(Tools.smallFirstChar(className))
-                .append("Table\"></table>").append(Tools.lineSeparator);
+                .append("Table\" " + "lay-filter=\"").append(Tools.smallFirstChar(className)).append("Table\"></table>")
+                .append(Tools.lineSeparator);
         sb.append("  </div>").append(Tools.lineSeparator);
         sb.append("</div>").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
@@ -131,13 +117,12 @@ public class CreateLayerUIJsp extends CreateBase
             sb.append("   </div>").append(Tools.lineSeparator);
         }
         sb.append("   <input type=\"hidden\" name=\"id\" id=\"id\" value=\"0\"/>").append(Tools.lineSeparator);
-        sb.append("   <input type=\"hidden\" name=\"actionUrl\" id=\"actionUrl\" value=\"\"/>")
-                .append(Tools.lineSeparator);
+        sb.append("   <input type=\"hidden\" name=\"actionUrl\" id=\"actionUrl\" value=\"\"/>").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append("   <div class=\"layui-form-item\">").append(Tools.lineSeparator);
         sb.append("       <div class=\"layui-input-block\">").append(Tools.lineSeparator);
-        sb.append("          <button class=\"layui-btn\" lay-submit lay-filter=\"")
-                .append(Tools.smallFirstChar(className)).append("Form\">确定</button>").append(Tools.lineSeparator);
+        sb.append("          <button class=\"layui-btn\" lay-submit lay-filter=\"").append(Tools.smallFirstChar(className))
+                .append("Form\">确定</button>").append(Tools.lineSeparator);
         sb.append(
                 "          <button type=\"reset\" class=\"layui-btn layui-btn-primary\" onclick=\"layer.closeAll()\">取消</button>")
                 .append(Tools.lineSeparator);
@@ -166,16 +151,13 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("     var form = layui.form;").append(Tools.lineSeparator);
         sb.append("     var ").append(Tools.smallFirstChar(className)).append("Table = table.render({")
                 .append(Tools.lineSeparator);
-        sb.append("        elem: '#").append(Tools.smallFirstChar(className)).append("Table'")
-                .append(Tools.lineSeparator);
-        sb.append("        , id: '").append(Tools.smallFirstChar(className)).append("Table'")
-                .append(Tools.lineSeparator);
+        sb.append("        elem: '#").append(Tools.smallFirstChar(className)).append("Table'").append(Tools.lineSeparator);
+        sb.append("        , id: '").append(Tools.smallFirstChar(className)).append("Table'").append(Tools.lineSeparator);
         sb.append("        , url: '/wbkj/").append(Tools.smallFirstChar(className)).append("/list'")
                 .append(Tools.lineSeparator);
         sb.append("        , cols: [[").append(Tools.lineSeparator);
         sb.append("           {checkbox: true, fixed: true}").append(Tools.lineSeparator);
-        sb.append("           , {field: 'id', title: 'ID', width: 80, sort: true, fixed: true}")
-                .append(Tools.lineSeparator);
+        sb.append("           , {field: 'id', title: 'ID', width: 80, sort: true, fixed: true}").append(Tools.lineSeparator);
         for(Map.Entry<String, String> entry : tableContent.entrySet())
         {
             sb.append("           , {field: '").append(Tools.changeFieldName2JavaPropertyFieldName(entry.getKey()))
@@ -240,11 +222,11 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                               , closeBtn: 1").append(Tools.lineSeparator);
         sb.append("                               , area: '650px;'").append(Tools.lineSeparator);
         sb.append("                               , shade: 0.2").append(Tools.lineSeparator);
-        sb.append("                               , id: '").append(Tools.smallFirstChar(className))
-                .append("FormWindow'").append(Tools.lineSeparator);
+        sb.append("                               , id: '").append(Tools.smallFirstChar(className)).append("FormWindow'")
+                .append(Tools.lineSeparator);
         sb.append("                               , moveType: 1").append(Tools.lineSeparator);
-        sb.append("                               , content: $('#").append(Tools.smallFirstChar(className))
-                .append("Form')").append(Tools.lineSeparator);
+        sb.append("                               , content: $('#").append(Tools.smallFirstChar(className)).append("Form')")
+                .append(Tools.lineSeparator);
         sb.append("                               , success: function (layero) {").append(Tools.lineSeparator);
         sb.append("                               }").append(Tools.lineSeparator);
         sb.append("                           });").append(Tools.lineSeparator);
@@ -254,8 +236,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                       }").append(Tools.lineSeparator);
         sb.append("                    },").append(Tools.lineSeparator);
         sb.append("                    error: function (json) {").append(Tools.lineSeparator);
-        sb.append("                       layer.alert(\"未知的错误！\", {closeBtn: 0}, function () {")
-                .append(Tools.lineSeparator);
+        sb.append("                       layer.alert(\"未知的错误！\", {closeBtn: 0}, function () {").append(Tools.lineSeparator);
         sb.append("                           layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                       });").append(Tools.lineSeparator);
         sb.append("                    }").append(Tools.lineSeparator);
@@ -287,8 +268,8 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                      $.ajax({").append(Tools.lineSeparator);
         sb.append("                          type: 'post',").append(Tools.lineSeparator);
         sb.append("                          data: {ids: idArray.toString()},").append(Tools.lineSeparator);
-        sb.append("                          url: '/wbkj/").append(Tools.smallFirstChar(className))
-                .append("/delete',").append(Tools.lineSeparator);
+        sb.append("                          url: '/wbkj/").append(Tools.smallFirstChar(className)).append("/delete',")
+                .append(Tools.lineSeparator);
         sb.append("                          success: function (json) {").append(Tools.lineSeparator);
         sb.append("                              if (json.success) {").append(Tools.lineSeparator);
         sb.append("                                  layer.alert(json.msg, {closeBtn: 0}, function () {")
@@ -319,12 +300,19 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("     $('#").append(Tools.smallFirstChar(className))
                 .append("MenuBar .layui-btn').on('click', " + "function () {").append(Tools.lineSeparator);
         sb.append("           var othis = $(this), method = othis.data('method');").append(Tools.lineSeparator);
-        sb.append("           active[method] ? active[method].call(this, othis) : '';")
-                .append(Tools.lineSeparator);
+        sb.append("           active[method] ? active[method].call(this, othis) : '';").append(Tools.lineSeparator);
         sb.append("     });").append(Tools.lineSeparator);
+
+        sb.append("     // 搜索框 回车键触发  ").append(Tools.lineSeparator);
+        sb.append("     $('#searchKey').on('keyup',function (e){ ").append(Tools.lineSeparator);
+        sb.append("       if(e.keyCode == 13) { ").append(Tools.lineSeparator);
+        sb.append("            $('#searchBtn').click(); ").append(Tools.lineSeparator);
+        sb.append("       }").append(Tools.lineSeparator);
+        sb.append("     });").append(Tools.lineSeparator);
+
         sb.append("     //form submit新建修改事件提交").append(Tools.lineSeparator);
-        sb.append("     form.on('submit(").append(Tools.smallFirstChar(className))
-                .append("Form)', function (data) {").append(Tools.lineSeparator);
+        sb.append("     form.on('submit(").append(Tools.smallFirstChar(className)).append("Form)', function (data) {")
+                .append(Tools.lineSeparator);
         sb.append("        var actionUrl = \"/wbkj/").append(Tools.smallFirstChar(className))
                 .append("/\" + $" + "('#actionUrl').val();").append(Tools.lineSeparator);
         sb.append("        $.ajax({").append(Tools.lineSeparator);
@@ -334,8 +322,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("            url: actionUrl,").append(Tools.lineSeparator);
         sb.append("            success: function (json) {").append(Tools.lineSeparator);
         sb.append("               if (json.success) {").append(Tools.lineSeparator);
-        sb.append("                  layer.alert(json.msg, {closeBtn: 0}, function () {")
-                .append(Tools.lineSeparator);
+        sb.append("                  layer.alert(json.msg, {closeBtn: 0}, function () {").append(Tools.lineSeparator);
         sb.append("                      layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                      ").append(Tools.smallFirstChar(className)).append("Table.reload(); ")
                 .append(Tools.lineSeparator);
@@ -346,8 +333,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("               }").append(Tools.lineSeparator);
         sb.append("            },").append(Tools.lineSeparator);
         sb.append("            error: function (json) {").append(Tools.lineSeparator);
-        sb.append("               layer.alert(\"登录超时,请重新登录！\", {closeBtn: 0}, function () {")
-                .append(Tools.lineSeparator);
+        sb.append("               layer.alert(\"登录超时,请重新登录！\", {closeBtn: 0}, function () {").append(Tools.lineSeparator);
         sb.append("                  layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                  window.location.reload();").append(Tools.lineSeparator);
         sb.append("               });").append(Tools.lineSeparator);
