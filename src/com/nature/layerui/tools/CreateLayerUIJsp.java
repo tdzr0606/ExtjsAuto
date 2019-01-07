@@ -85,6 +85,8 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append(Tools.lineSeparator);
         sb.append(createFormContent(tableContent));
         sb.append(Tools.lineSeparator);
+        sb.append("<jsp:include page=\"../inc/foot.jsp\" />").append(Tools.lineSeparator);
+        sb.append(Tools.lineSeparator);
         sb.append(createJavaScriptContent(tableContent));
         sb.append(Tools.lineSeparator);
         sb.append("</body>").append(Tools.lineSeparator);
