@@ -1,6 +1,7 @@
 package com.nature.mybatis.tools;
 
 import com.nature.extjs.tools.Tools;
+import com.nature.layerui.tools.CreateBase;
 
 import java.util.Map;
 
@@ -11,10 +12,10 @@ import java.util.Map;
  * @Author: 竺志伟
  * @Date: 2017-11-14 14:44
  */
-public class CreateLayerUIVm extends CreateBase
+public class CreateLayerUIJsp extends CreateBase
 {
 
-    public CreateLayerUIVm(String filePath, String author, String className, String jspPath)
+    public CreateLayerUIJsp(String filePath, String author, String className, String jspPath)
     {
         super.author = author;
         super.className = className;
@@ -29,7 +30,7 @@ public class CreateLayerUIVm extends CreateBase
      */
     public void createLayuiJsp(Map<String, String> tableContent)
     {
-        Tools.writeFile(filePath, Tools.smallFirstChar(className) + "Info.vm", createJspContent(tableContent));
+        Tools.writeFile(filePath, Tools.smallFirstChar(className) + "Info.jsp", createJspContent(tableContent));
     }
 
 
@@ -41,18 +42,18 @@ public class CreateLayerUIVm extends CreateBase
     private String createJspContent(Map<String, String> tableContent)
     {
         StringBuffer sb = new StringBuffer();
-        sb.append("<!--").append(Tools.lineSeparator);
-        sb.append(" *  ").append(Tools.smallFirstChar(className)).append(Tools.lineSeparator);
-        sb.append(" * User:").append(author).append(Tools.lineSeparator);
-        sb.append(" * Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
-        sb.append("-->").append(Tools.lineSeparator);
+        sb.append("<%--").append(Tools.lineSeparator);
+        sb.append("   ").append(Tools.smallFirstChar(className)).append(Tools.lineSeparator);
+        sb.append("   User:").append(author).append(Tools.lineSeparator);
+        sb.append("   Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
+        sb.append("--%>").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
+        sb.append("<%@ page contentType=\"text/html;charset=UTF-8\" language=\"java\" %>").append(Tools.lineSeparator);
         sb.append("<!DOCTYPE html>").append(Tools.lineSeparator);
-        sb.append("<html>").append(Tools.lineSeparator);
-        sb.append(" #parse('/web/inc/head.vm') ").append(Tools.lineSeparator);
+        sb.append("<jsp:include page=\"../inc/head.jsp\" flush=\"true\"/>").append(Tools.lineSeparator);
         sb.append("<body>").append(Tools.lineSeparator);
         sb.append("<div class=\"layui-layout layui-layout-admin\">").append(Tools.lineSeparator);
-        sb.append("    #parse('/web/inc/menu.vm')").append(Tools.lineSeparator);
+        sb.append("    <jsp:include page=\"../inc/menu.jsp\" />").append(Tools.lineSeparator);
         sb.append("    <div class=\"layui-body\" style=\"padding:10px\">").append(Tools.lineSeparator);
         sb.append("        <fieldset class=\"layui-elem-field layui-field-title\"><legend>菜单</legend></fieldset>")
                 .append(Tools.lineSeparator);
@@ -61,12 +62,9 @@ public class CreateLayerUIVm extends CreateBase
         sb.append("            <div class=\"layui-row\">").append(Tools.lineSeparator);
         sb.append("                <div class=\"layui-col-md6\">").append(Tools.lineSeparator);
         sb.append("                    <div class=\"layui-btn-group\">").append(Tools.lineSeparator);
-        sb.append("                         <button class=\"layui-btn\" data-method=\"new\">新建</button> ")
-                .append(Tools.lineSeparator);
-        sb.append("                         <button class=\"layui-btn\" data-method=\"modify\">修改</button>")
-                .append(Tools.lineSeparator);
-        sb.append("                         <button class=\"layui-btn\" data-method=\"delete\">删除</button><%}%>")
-                .append(Tools.lineSeparator);
+        sb.append("                <button class=\"layui-btn\" data-method=\"new\">新建</button>").append(Tools.lineSeparator);
+        sb.append("                <button class=\"layui-btn\" data-method=\"modify\">修改</button>").append(Tools.lineSeparator);
+        sb.append("                <button class=\"layui-btn\" data-method=\"delete\">删除</button>").append(Tools.lineSeparator);
         sb.append("                    </div>").append(Tools.lineSeparator);
         sb.append("               </div>").append(Tools.lineSeparator);
         sb.append("           <div class=\"layui-col-md6\">").append(Tools.lineSeparator);
@@ -88,7 +86,7 @@ public class CreateLayerUIVm extends CreateBase
         sb.append(Tools.lineSeparator);
         sb.append(createFormContent(tableContent));
         sb.append(Tools.lineSeparator);
-        sb.append(" #parse('/web/inc/foot.vm')").append(Tools.lineSeparator);
+        sb.append("<jsp:include page=\"../inc/foot.jsp\" />").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append(createJavaScriptContent(tableContent));
         sb.append(Tools.lineSeparator);
