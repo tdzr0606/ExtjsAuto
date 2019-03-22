@@ -86,6 +86,7 @@ public class CreateVO extends CreateBase
 			fileContent.append("package ").append(packageName).append(";").append(Tools.lineSeparator);
 			fileContent.append(Tools.lineSeparator);
 			fileContent.append(importSB.toString());
+			fileContent.append("import java.io.Serializable;").append(Tools.lineSeparator);
 			fileContent.append(Tools.lineSeparator);
 			fileContent.append("/**").append(Tools.lineSeparator);
 			fileContent.append(" * ").append(Tools.lineSeparator);
@@ -94,7 +95,7 @@ public class CreateVO extends CreateBase
 			fileContent.append(" * Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
 			fileContent.append(" */ ").append(Tools.lineSeparator);
 			fileContent.append(Tools.lineSeparator);
-			fileContent.append("public class ").append(className).append(Tools.lineSeparator);
+			fileContent.append("public class ").append(className).append("  implements Serializable ").append(Tools.lineSeparator);
 			fileContent.append("{").append(Tools.lineSeparator);
 			fileContent.append(propertyContent);
 			fileContent.append("}").append(Tools.lineSeparator);

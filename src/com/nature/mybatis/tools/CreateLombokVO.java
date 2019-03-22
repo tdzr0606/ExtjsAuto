@@ -93,6 +93,7 @@ public class CreateLombokVO extends CreateBase
             fileContent.append(Tools.lineSeparator);
             fileContent.append(importSB.toString());
             fileContent.append("import lombok.Data;").append(Tools.lineSeparator);
+            fileContent.append("import java.io.Serializable;").append(Tools.lineSeparator);
             fileContent.append(Tools.lineSeparator);
             fileContent.append("/**").append(Tools.lineSeparator);
             fileContent.append(" * ").append(Tools.lineSeparator);
@@ -102,7 +103,7 @@ public class CreateLombokVO extends CreateBase
             fileContent.append(" */ ").append(Tools.lineSeparator);
             fileContent.append(Tools.lineSeparator);
             fileContent.append("@Data ").append(Tools.lineSeparator);
-            fileContent.append("public class ").append(className).append(Tools.lineSeparator);
+            fileContent.append("public class ").append(className).append("  implements Serializable ").append(Tools.lineSeparator);
             fileContent.append("{").append(Tools.lineSeparator);
             fileContent.append(propertyContent);
             fileContent.append("}").append(Tools.lineSeparator);
