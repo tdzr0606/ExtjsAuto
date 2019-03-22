@@ -25,9 +25,9 @@ public class MyBatisAutoMain
         // 数据库 密码
         String sqlPwd = "root";
         // 数据表名
-        String tableName = "web_admin";
+        String tableName = "au_news";
         // 类名
-        String className = "Admin";
+        String className = "News";
         // 项目名,一般和数据表名的前缀相同
         String projectName = "web";
         // 类的基础包名
@@ -49,8 +49,8 @@ public class MyBatisAutoMain
         //        CreateVO createVO =
         //                new CreateVO(daoConnect.getStatement(), tableName, className, packageName, filePath, projectName, author);
         //        createVO.createVo();
-        CreateLombokVO createVO =
-                new CreateLombokVO(daoConnect.getStatement(), tableName, className, packageName, filePath, projectName, author);
+        CreateLombokSpringBootVO createVO =
+                new CreateLombokSpringBootVO(daoConnect.getStatement(), tableName, className, packageName, filePath, projectName, author);
         createVO.createVo();
         System.out.println("------VO文件创建结束------");
 

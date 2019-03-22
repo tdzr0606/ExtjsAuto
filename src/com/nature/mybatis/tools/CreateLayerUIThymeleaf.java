@@ -242,7 +242,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                       }").append(Tools.lineSeparator);
         sb.append("                    },").append(Tools.lineSeparator);
         sb.append("                    error: function (json) {").append(Tools.lineSeparator);
-        sb.append("                       layer.alert(\"未知的错误！\", {closeBtn: 0}, function () {").append(Tools.lineSeparator);
+        sb.append("                       layer.alert(json.responseJSON.message, {closeBtn: 0}, function () {").append(Tools.lineSeparator);
         sb.append("                           layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                       });").append(Tools.lineSeparator);
         sb.append("                    }").append(Tools.lineSeparator);
@@ -290,7 +290,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                              }").append(Tools.lineSeparator);
         sb.append("                          },").append(Tools.lineSeparator);
         sb.append("                          error: function (json) {").append(Tools.lineSeparator);
-        sb.append("                             layer.alert(\"登录超时,请重新登录！\", {closeBtn: 0}, function () {")
+        sb.append("                             layer.alert(json.responseJSON.message, {closeBtn: 0}, function () {")
                 .append(Tools.lineSeparator);
         sb.append("                                  layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                                  window.location.reload();").append(Tools.lineSeparator);
