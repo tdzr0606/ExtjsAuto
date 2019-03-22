@@ -87,7 +87,7 @@ public class CreateController extends CreateBase
         sb.append("    {").append(Tools.lineSeparator);
         sb.append("         modelAndView = new ModelAndView();").append(Tools.lineSeparator);
         sb.append("         modelAndView.setViewName(\"").append(jspPath).append("/").append(Tools.smallFirstChar(className))
-                .append("\");").append(Tools.lineSeparator);
+                .append("Info\");").append(Tools.lineSeparator);
         sb.append("         return modelAndView;").append(Tools.lineSeparator);
         sb.append("    }").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
