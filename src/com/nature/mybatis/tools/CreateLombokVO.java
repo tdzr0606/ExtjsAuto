@@ -101,7 +101,7 @@ public class CreateLombokVO extends CreateBase
             fileContent.append(" * Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
             fileContent.append(" */ ").append(Tools.lineSeparator);
             fileContent.append(Tools.lineSeparator);
-            fileContent.append("@Data ").append(className).append(Tools.lineSeparator);
+            fileContent.append("@Data ").append(Tools.lineSeparator);
             fileContent.append("public class ").append(className).append(Tools.lineSeparator);
             fileContent.append("{").append(Tools.lineSeparator);
             fileContent.append(propertyContent);
