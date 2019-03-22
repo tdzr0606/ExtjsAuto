@@ -19,19 +19,19 @@ public class LayerUIAutoMain
         // 文件路径
         String filePath = "/Users/apple/Desktop/layui";
         // 数据库连接路径
-        String sqlUrl = "jdbc:mysql://127.0.0.1:3306/zzs_project?useUnicode=true&characterEncoding=utf-8";
+        String sqlUrl = "jdbc:mysql://127.0.0.1:3306/uni2k?useUnicode=true&characterEncoding=utf-8";
         // 数据库 用户名
         String sqlUser = "root";
         // 数据库 密码
         String sqlPwd = "root";
         // 数据表名
-        String tableName = "web_admin";
+        String tableName = "web_serverInfo_list";
         // 类名
-        String className = "Admin";
+        String className = "ServerInfoList";
         // 项目名,一般和数据表名的前缀相同
         String projectName = "web";
         // 类的基础包名
-        String packageName = "com.nature";
+        String packageName = "com.wbkj.jet";
         // 创建人
         String author = "竺志伟";
         // jsp子文件夹
