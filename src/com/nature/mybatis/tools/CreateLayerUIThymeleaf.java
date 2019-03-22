@@ -75,7 +75,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
                 .append(Tools.lineSeparator);
         sb.append("                         <button class=\"layui-btn\" data-method=\"modify\">修改</button>")
                 .append(Tools.lineSeparator);
-        sb.append("                         <button class=\"layui-btn\" data-method=\"delete\">删除</button><%}%>")
+        sb.append("                         <button class=\"layui-btn\" data-method=\"delete\">删除</button>")
                 .append(Tools.lineSeparator);
         sb.append("                    </div>").append(Tools.lineSeparator);
         sb.append("               </div>").append(Tools.lineSeparator);
@@ -339,7 +339,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("               }").append(Tools.lineSeparator);
         sb.append("            },").append(Tools.lineSeparator);
         sb.append("            error: function (json) {").append(Tools.lineSeparator);
-        sb.append("               layer.alert(\"登录超时,请重新登录！\", {closeBtn: 0}, function () {").append(Tools.lineSeparator);
+        sb.append("               layer.alert(json.responseJSON.message, {closeBtn: 0}, function () {").append(Tools.lineSeparator);
         sb.append("                  layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                  window.location.reload();").append(Tools.lineSeparator);
         sb.append("               });").append(Tools.lineSeparator);
