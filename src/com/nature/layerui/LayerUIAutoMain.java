@@ -25,11 +25,11 @@ public class LayerUIAutoMain
         // 数据库 密码
         String sqlPwd = "root";
         // 数据表名
-        String tableName = "web_serverInfo_list";
+        String tableName = "sc_unit_logimg";
         // 类名
-        String className = "ServerInfoList";
+        String className = "UnitLogImg";
         // 项目名,一般和数据表名的前缀相同
-        String projectName = "web";
+        String projectName = "sc";
         // 类的基础包名
         String packageName = "com.wbkj.jet";
         // 创建人

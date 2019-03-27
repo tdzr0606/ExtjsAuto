@@ -60,7 +60,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("        <div id=\"").append(Tools.smallFirstChar(className))
                 .append("MenuBar\"> " + "<!--将所有的菜单聚集在一起.一块进行监听-->").append(Tools.lineSeparator);
         sb.append("            <div class=\"layui-row\">").append(Tools.lineSeparator);
-        sb.append("           <div class=\"layui-col-md6\">").append(Tools.lineSeparator);
+        sb.append("           <div class=\"layui-col-xs9\">").append(Tools.lineSeparator);
         sb.append("               搜索：").append(Tools.lineSeparator);
         sb.append("               <div class=\"layui-inline\" style=\"width:70%\">").append(Tools.lineSeparator);
         sb.append("                  <input class=\"layui-input\" name=\"key\" id=\"searchKey\" " +
@@ -69,7 +69,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("               <button class=\"layui-btn\" data-method=\"search\" id=\"searchBtn\">搜索</button>")
                 .append(Tools.lineSeparator);
         sb.append("           </div>").append(Tools.lineSeparator);
-        sb.append("                <div class=\"layui-col-md6\">").append(Tools.lineSeparator);
+        sb.append("                <div class=\"layui-col-xs3\">").append(Tools.lineSeparator);
         sb.append("                    <div class=\"layui-btn-group\">").append(Tools.lineSeparator);
         sb.append("                         <button class=\"layui-btn\" data-method=\"new\">新建</button> ")
                 .append(Tools.lineSeparator);
