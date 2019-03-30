@@ -107,6 +107,8 @@ public class CreateMapperXml extends CreateBase
 
             fileContent.append("    <cache type=\"org.mybatis.caches.ehcache.EhcacheCache\"></cache> ")
                     .append(Tools.lineSeparator);
+            fileContent.append("    <cache-ref namespace=\"").append(packageName).append(".mapper.").append(projectName)
+                    .append(".").append(className).append("Mapper").append("\"></cache-ref>").append(Tools.lineSeparator);
             fileContent.append("    <!--基础 表字段定义 -->").append(Tools.lineSeparator);
             fileContent.append("    <sql id=\"basicColumn\">").append(Tools.lineSeparator);
             fileContent.append("        ").append(fieldSb.substring(0, fieldSb.length() - 1)).append(Tools.lineSeparator);
