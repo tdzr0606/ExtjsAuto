@@ -50,10 +50,10 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("<!DOCTYPE html>").append(Tools.lineSeparator);
         sb.append("<html xmlns=\"http://www.w3.org/1999/xhtml\"\n" + "      xmlns:th=\"http://www.thymeleaf.org\">")
                 .append(Tools.lineSeparator);
-        sb.append(" <div th:replace=\"/web/inc/common :: head\"></div> ").append(Tools.lineSeparator);
+        sb.append(" <div th:replace=\"web/common :: head\"></div> ").append(Tools.lineSeparator);
         sb.append("<body>").append(Tools.lineSeparator);
         sb.append("<div class=\"layui-layout layui-layout-admin\">").append(Tools.lineSeparator);
-        sb.append("   <div th:replace=\"/web/inc/common :: menu\"></div>").append(Tools.lineSeparator);
+        sb.append("   <div th:replace=\"web/common :: menu\"></div>").append(Tools.lineSeparator);
         sb.append("    <div class=\"layui-body\" style=\"padding:10px\">").append(Tools.lineSeparator);
         sb.append("        <fieldset class=\"layui-elem-field layui-field-title\"><legend>菜单</legend></fieldset>")
                 .append(Tools.lineSeparator);
@@ -89,7 +89,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append(Tools.lineSeparator);
         sb.append(createFormContent(tableContent));
         sb.append(Tools.lineSeparator);
-        sb.append(" <div th:replace=\"/web/inc/common :: foot\"></div>").append(Tools.lineSeparator);
+        sb.append(" <div th:replace=\"web/common :: foot\"></div>").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append(createJavaScriptContent(tableContent));
         sb.append(Tools.lineSeparator);
