@@ -189,6 +189,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                 , closeBtn: 1").append(Tools.lineSeparator);
         sb.append("                 , area: '650px;'").append(Tools.lineSeparator);
         sb.append("                 , shade: 0.2").append(Tools.lineSeparator);
+        sb.append("                 , shadeClose: true").append(Tools.lineSeparator);
         sb.append("                 , id: '").append(Tools.smallFirstChar(className)).append("FormWindow'")
                 .append(Tools.lineSeparator);
         sb.append("                 , moveType: 1 ").append(Tools.lineSeparator);
@@ -225,6 +226,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                               , closeBtn: 1").append(Tools.lineSeparator);
         sb.append("                               , area: '650px;'").append(Tools.lineSeparator);
         sb.append("                               , shade: 0.2").append(Tools.lineSeparator);
+        sb.append("                               , shadeClose: true").append(Tools.lineSeparator);
         sb.append("                               , id: '").append(Tools.smallFirstChar(className)).append("FormWindow'")
                 .append(Tools.lineSeparator);
         sb.append("                               , moveType: 1").append(Tools.lineSeparator);

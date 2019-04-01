@@ -25,9 +25,9 @@ public class LayerUIAutoMain
         // 数据库 密码
         String sqlPwd = "root";
         // 数据表名
-        String tableName = "sc_unit_logimg";
+        String tableName = "sc_codes_module";
         // 类名
-        String className = "UnitLogImg";
+        String className = "CodesModule";
         // 项目名,一般和数据表名的前缀相同
         String projectName = "sc";
         // 类的基础包名

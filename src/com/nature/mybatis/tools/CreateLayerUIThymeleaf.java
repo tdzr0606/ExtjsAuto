@@ -55,8 +55,14 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("<div class=\"layui-layout layui-layout-admin\">").append(Tools.lineSeparator);
         sb.append("   <div th:replace=\"web/common :: menu\"></div>").append(Tools.lineSeparator);
         sb.append("    <div class=\"layui-body\" style=\"padding:10px\">").append(Tools.lineSeparator);
-        sb.append("        <fieldset class=\"layui-elem-field layui-field-title\"><legend>菜单</legend></fieldset>")
-                .append(Tools.lineSeparator);
+        sb.append("         <blockquote class=\"layui-elem-quote\" style=\"padding-top:8px;padding-bottom:5px;\">").append(Tools.lineSeparator);
+        sb.append("             <span class=\"layui-breadcrumb\">").append(Tools.lineSeparator);
+        sb.append("                 <a href=\"/web/\"><i class=\"fa fa-flag\"></i>&nbsp;首页</a>").append(Tools.lineSeparator);
+        sb.append("                 <a href=\"\">菜单1</a>").append(Tools.lineSeparator);
+        sb.append("                 <a href=\"\"><cite>菜单2</cite></a>").append(Tools.lineSeparator);
+        sb.append("             </span>").append(Tools.lineSeparator);
+        sb.append("         </blockquote>").append(Tools.lineSeparator);
+
         sb.append("        <div id=\"").append(Tools.smallFirstChar(className))
                 .append("MenuBar\"> " + "<!--将所有的菜单聚集在一起.一块进行监听-->").append(Tools.lineSeparator);
         sb.append("            <div class=\"layui-row\">").append(Tools.lineSeparator);
@@ -159,7 +165,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
                 .append(Tools.lineSeparator);
         sb.append("        elem: '#").append(Tools.smallFirstChar(className)).append("Table'").append(Tools.lineSeparator);
         sb.append("        , id: '").append(Tools.smallFirstChar(className)).append("Table'").append(Tools.lineSeparator);
-        sb.append("        , url: '/wbkj/").append(Tools.smallFirstChar(className)).append("/list'")
+        sb.append("        , url: '/web/").append(Tools.smallFirstChar(className)).append("/list'")
                 .append(Tools.lineSeparator);
         sb.append("        , cols: [[").append(Tools.lineSeparator);
         sb.append("           {checkbox: true, fixed: true}").append(Tools.lineSeparator);
@@ -192,6 +198,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                 , closeBtn: 1").append(Tools.lineSeparator);
         sb.append("                 , area: '650px;'").append(Tools.lineSeparator);
         sb.append("                 , shade: 0.2").append(Tools.lineSeparator);
+        sb.append("                 , shadeClose: true").append(Tools.lineSeparator);
         sb.append("                 , id: '").append(Tools.smallFirstChar(className)).append("FormWindow'")
                 .append(Tools.lineSeparator);
         sb.append("                 , moveType: 1 ").append(Tools.lineSeparator);
@@ -214,7 +221,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                var id = data[0].id;").append(Tools.lineSeparator);
         sb.append("                $.ajax({").append(Tools.lineSeparator);
         sb.append("                    type: 'get',").append(Tools.lineSeparator);
-        sb.append("                    url: '/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("                    url: '/web/").append(Tools.smallFirstChar(className))
                 .append("/info?id=' + id + '&sessionId='+new Date().getTime(),").append(Tools.lineSeparator);
         sb.append("                    success: function (json) {").append(Tools.lineSeparator);
         sb.append("                       if (json.success){").append(Tools.lineSeparator);
@@ -228,6 +235,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                               , closeBtn: 1").append(Tools.lineSeparator);
         sb.append("                               , area: '650px;'").append(Tools.lineSeparator);
         sb.append("                               , shade: 0.2").append(Tools.lineSeparator);
+        sb.append("                               , shadeClose: true").append(Tools.lineSeparator);
         sb.append("                               , id: '").append(Tools.smallFirstChar(className)).append("FormWindow'")
                 .append(Tools.lineSeparator);
         sb.append("                               , moveType: 1").append(Tools.lineSeparator);
@@ -274,7 +282,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                      $.ajax({").append(Tools.lineSeparator);
         sb.append("                          type: 'post',").append(Tools.lineSeparator);
         sb.append("                          data: {ids: idArray.toString()},").append(Tools.lineSeparator);
-        sb.append("                          url: '/wbkj/").append(Tools.smallFirstChar(className)).append("/delete',")
+        sb.append("                          url: '/web/").append(Tools.smallFirstChar(className)).append("/delete',")
                 .append(Tools.lineSeparator);
         sb.append("                          success: function (json) {").append(Tools.lineSeparator);
         sb.append("                              if (json.success) {").append(Tools.lineSeparator);
@@ -319,7 +327,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("     //form submit新建修改事件提交").append(Tools.lineSeparator);
         sb.append("     form.on('submit(").append(Tools.smallFirstChar(className)).append("Form)', function (data) {")
                 .append(Tools.lineSeparator);
-        sb.append("        var actionUrl = \"/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("        var actionUrl = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/\" + $" + "('#actionUrl').val();").append(Tools.lineSeparator);
         sb.append("        $.ajax({").append(Tools.lineSeparator);
         sb.append("            type: 'post',").append(Tools.lineSeparator);

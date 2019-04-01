@@ -81,7 +81,7 @@ public class CreateController extends CreateBase
         sb.append("      *").append(Tools.lineSeparator);
         sb.append("      * @return").append(Tools.lineSeparator);
         sb.append("      */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value=\"/wbkj/").append(Tools.smallFirstChar(className)).append("/toPage\")")
+        sb.append("    @RequestMapping(value=\"/web/").append(Tools.smallFirstChar(className)).append("/toPage\")")
                 .append(Tools.lineSeparator);
         sb.append("    public ModelAndView toPage()").append(Tools.lineSeparator);
         sb.append("    {").append(Tools.lineSeparator);
@@ -99,7 +99,7 @@ public class CreateController extends CreateBase
         sb.append("     * @param key").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/list\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public Page<").append(className).append("> findPage(").append(Tools.lineSeparator);
@@ -120,7 +120,7 @@ public class CreateController extends CreateBase
         sb.append("     * @param ").append(Tools.smallFirstChar(className)).append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/new\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult add(").append(className).append(" ").append(Tools.smallFirstChar(className))
@@ -137,7 +137,7 @@ public class CreateController extends CreateBase
         sb.append("     * @param ").append(Tools.smallFirstChar(className)).append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/modify\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult modify(").append(className).append(" ").append(Tools.smallFirstChar(className))
@@ -154,7 +154,7 @@ public class CreateController extends CreateBase
         sb.append("     * @param ids").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/delete\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult delete(").append(Tools.lineSeparator);
@@ -172,7 +172,7 @@ public class CreateController extends CreateBase
         sb.append("     * @param id").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    @RequestMapping(value = \"/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/info\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult get").append(className).append("ById(").append(Tools.lineSeparator);
