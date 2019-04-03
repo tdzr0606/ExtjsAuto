@@ -155,7 +155,7 @@ public class CreateLayerUIJsp extends CreateBase
                 .append(Tools.lineSeparator);
         sb.append("        elem: '#").append(Tools.smallFirstChar(className)).append("Table'").append(Tools.lineSeparator);
         sb.append("        , id: '").append(Tools.smallFirstChar(className)).append("Table'").append(Tools.lineSeparator);
-        sb.append("        , url: '/wbkj/").append(Tools.smallFirstChar(className)).append("/list'")
+        sb.append("        , url: '/web/").append(Tools.smallFirstChar(className)).append("/list'")
                 .append(Tools.lineSeparator);
         sb.append("        , cols: [[").append(Tools.lineSeparator);
         sb.append("           {checkbox: true, fixed: true}").append(Tools.lineSeparator);
@@ -175,7 +175,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("         search: function () {").append(Tools.lineSeparator);
         sb.append("             var keyValue = $('#searchKey').val();").append(Tools.lineSeparator);
         sb.append("             ").append(Tools.smallFirstChar(className))
-                .append("Table.reload({where: {key: " + "keyValue}});").append(Tools.lineSeparator);
+                .append("Table.reload({where: {key: " + "keyValue},page:{curr:1}});").append(Tools.lineSeparator);
         sb.append("         }").append(Tools.lineSeparator);
         sb.append("         , new: function () {").append(Tools.lineSeparator);
         sb.append("              $('#").append(Tools.smallFirstChar(className)).append("Form')[0].reset();")
@@ -211,7 +211,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                var id = data[0].id;").append(Tools.lineSeparator);
         sb.append("                $.ajax({").append(Tools.lineSeparator);
         sb.append("                    type: 'get',").append(Tools.lineSeparator);
-        sb.append("                    url: '/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("                    url: '/web/").append(Tools.smallFirstChar(className))
                 .append("/info?id=' + id + '&sessionId='+new Date().getTime(),").append(Tools.lineSeparator);
         sb.append("                    success: function (json) {").append(Tools.lineSeparator);
         sb.append("                       if (json.success){").append(Tools.lineSeparator);
@@ -272,7 +272,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                      $.ajax({").append(Tools.lineSeparator);
         sb.append("                          type: 'post',").append(Tools.lineSeparator);
         sb.append("                          data: {ids: idArray.toString()},").append(Tools.lineSeparator);
-        sb.append("                          url: '/wbkj/").append(Tools.smallFirstChar(className)).append("/delete',")
+        sb.append("                          url: '/web/").append(Tools.smallFirstChar(className)).append("/delete',")
                 .append(Tools.lineSeparator);
         sb.append("                          success: function (json) {").append(Tools.lineSeparator);
         sb.append("                              if (json.success) {").append(Tools.lineSeparator);
@@ -317,7 +317,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("     //form submit新建修改事件提交").append(Tools.lineSeparator);
         sb.append("     form.on('submit(").append(Tools.smallFirstChar(className)).append("Form)', function (data) {")
                 .append(Tools.lineSeparator);
-        sb.append("        var actionUrl = \"/wbkj/").append(Tools.smallFirstChar(className))
+        sb.append("        var actionUrl = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/\" + $" + "('#actionUrl').val();").append(Tools.lineSeparator);
         sb.append("        $.ajax({").append(Tools.lineSeparator);
         sb.append("            type: 'post',").append(Tools.lineSeparator);
