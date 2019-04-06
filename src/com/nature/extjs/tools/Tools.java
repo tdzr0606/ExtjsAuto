@@ -101,7 +101,7 @@ public class Tools
                 javaType = "Integer";
                 break;
             case "DECIMAL":
-                javaType = "Float";
+                javaType = "BigDecimal";
                 break;
             case "TINYINT":
                 javaType = "Boolean";

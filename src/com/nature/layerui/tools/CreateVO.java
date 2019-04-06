@@ -26,6 +26,7 @@ public class CreateVO extends CreateBase
     private StringBuffer importSB = new StringBuffer();
     private int dateCount = 0;
     private int dateTimeCount = 0;
+    private int bigDecimalCount = 0;
 
     // 字段名、字段类型
     private Map<String, String> tableContentMap = new HashMap<String, String>();
@@ -167,6 +168,15 @@ public class CreateVO extends CreateBase
                 propertySB.append("   @JsonSerialize(using = CustomDatetimeChange.class)").append(Tools.lineSeparator);
                 dateTimeCount++;
             }
+            else if(Tools.changeFieldType2JavaType(fieldType).equals("BigDecimal"))
+            {
+                if(bigDecimalCount == 0)
+                {
+                    importSB.append("import java.math.BigDecimal;").append(Tools.lineSeparator);
+                }
+                bigDecimalCount++;
+            }
+
             propertySB.append("    private ").append(Tools.changeFieldType2JavaType(fieldType)).append(" ")
                     .append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(";").append(Tools.lineSeparator);
             methodSB.append("    public ").append(Tools.changeFieldType2JavaType(fieldType)).append(" ")

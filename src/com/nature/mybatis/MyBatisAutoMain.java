@@ -25,9 +25,9 @@ public class MyBatisAutoMain
         // 数据库 密码
         String sqlPwd = "root";
         // 数据表名
-        String tableName = "auc_goods_type";
+        String tableName = "auc_user_service_info";
         // 类名
-        String className = "GoodsType";
+        String className = "UserServiceInfo";
         // 项目名,一般和数据表名的前缀相同
         String projectName = "web";
         // 类的基础包名
