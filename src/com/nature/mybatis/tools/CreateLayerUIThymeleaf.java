@@ -156,6 +156,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
     {
         StringBuffer sb = new StringBuffer();
         sb.append("<script type=\"text/javascript\" th:inline=\"none\" >").append(Tools.lineSeparator);
+        sb.append("  var selectId = 0 ; ").append(Tools.lineSeparator);
         sb.append("  layui.use(['element', 'table', 'layer', 'form'], function () {").append(Tools.lineSeparator);
         sb.append("     var $ = layui.jquery;").append(Tools.lineSeparator);
         sb.append("     var table = layui.table;").append(Tools.lineSeparator);
@@ -168,7 +169,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("        , url: '/web/").append(Tools.smallFirstChar(className)).append("/list'")
                 .append(Tools.lineSeparator);
         sb.append("        , cols: [[").append(Tools.lineSeparator);
-        sb.append("           {checkbox: true, fixed: true}").append(Tools.lineSeparator);
+        sb.append("          {type:'numbers',fixed:true}").append(Tools.lineSeparator);
         sb.append("           , {field: 'id', title: 'ID', width: 80, sort: true, fixed: true}").append(Tools.lineSeparator);
         for(Map.Entry<String, String> entry : tableContent.entrySet())
         {
@@ -176,16 +177,23 @@ public class CreateLayerUIThymeleaf extends CreateBase
                     .append("', title: '字段名', width: 80, sort: true}").append(Tools.lineSeparator);
         }
         sb.append("       ]]").append(Tools.lineSeparator);
-        sb.append("       , height: 'full-240'").append(Tools.lineSeparator);
+        sb.append("       , height: 'full-220'").append(Tools.lineSeparator);
         sb.append("       , limit: 40").append(Tools.lineSeparator);
         sb.append("       , page: true").append(Tools.lineSeparator);
         sb.append("     });").append(Tools.lineSeparator);
+
+        sb.append("     table.on('row(").append(Tools.smallFirstChar(className)).append("Table)', function(obj){").append(Tools.lineSeparator);
+        sb.append("         selectId = obj.data.id;").append(Tools.lineSeparator);
+        sb.append("         obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');").append(Tools.lineSeparator);
+        sb.append("     });").append(Tools.lineSeparator);
+
         sb.append("     //触发事件").append(Tools.lineSeparator);
         sb.append("     var active = {").append(Tools.lineSeparator);
         sb.append("         search: function () {").append(Tools.lineSeparator);
         sb.append("             var keyValue = $('#searchKey').val();").append(Tools.lineSeparator);
         sb.append("             ").append(Tools.smallFirstChar(className))
                 .append("Table.reload({where: {key: " + "keyValue},page:{curr:1}});").append(Tools.lineSeparator);
+        sb.append("              selectId = 0;").append(Tools.lineSeparator);
         sb.append("         }").append(Tools.lineSeparator);
         sb.append("         , new: function () {").append(Tools.lineSeparator);
         sb.append("              $('#").append(Tools.smallFirstChar(className)).append("Form')[0].reset();")
@@ -207,22 +215,15 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("             });").append(Tools.lineSeparator);
         sb.append("        }").append(Tools.lineSeparator);
         sb.append("        , modify: function () {").append(Tools.lineSeparator);
-        sb.append("             var checkStatus = table.checkStatus('").append(Tools.smallFirstChar(className))
-                .append("Table'), data =" + " checkStatus" + ".data;").append(Tools.lineSeparator);
-        sb.append("             if (data.length < 1){").append(Tools.lineSeparator);
+        sb.append("             if(selectId == '0'){").append(Tools.lineSeparator);
         sb.append("                layer.msg('您必须选中一条需要修改的记录');").append(Tools.lineSeparator);
         sb.append("                return false;").append(Tools.lineSeparator);
         sb.append("             }").append(Tools.lineSeparator);
-        sb.append("             else if (data.length > 1){").append(Tools.lineSeparator);
-        sb.append("                layer.msg('您在修改的时候,不能选中多条记录');").append(Tools.lineSeparator);
-        sb.append("                return false;").append(Tools.lineSeparator);
-        sb.append("             }").append(Tools.lineSeparator);
         sb.append("             else {").append(Tools.lineSeparator);
-        sb.append("                var id = data[0].id;").append(Tools.lineSeparator);
         sb.append("                $.ajax({").append(Tools.lineSeparator);
         sb.append("                    type: 'get',").append(Tools.lineSeparator);
         sb.append("                    url: '/web/").append(Tools.smallFirstChar(className))
-                .append("/info?id=' + id + '&sessionId='+new Date().getTime(),").append(Tools.lineSeparator);
+                .append("/info?id=' + selectId + '&sessionId='+new Date().getTime(),").append(Tools.lineSeparator);
         sb.append("                    success: function (json) {").append(Tools.lineSeparator);
         sb.append("                       if (json.success){").append(Tools.lineSeparator);
         sb.append("                           form.loadData(json.data, '").append(Tools.smallFirstChar(className))
@@ -258,9 +259,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("             }").append(Tools.lineSeparator);
         sb.append("        }").append(Tools.lineSeparator);
         sb.append("        , delete: function () {").append(Tools.lineSeparator);
-        sb.append("             var checkStatus = table.checkStatus('").append(Tools.smallFirstChar(className))
-                .append("Table'), data =" + " checkStatus" + ".data;").append(Tools.lineSeparator);
-        sb.append("             if (data.length < 1){").append(Tools.lineSeparator);
+        sb.append("             if(selectId == '0'){").append(Tools.lineSeparator);
         sb.append("                layer.msg('您必须最少选中一条需要删除的记录');").append(Tools.lineSeparator);
         sb.append("                return false;").append(Tools.lineSeparator);
         sb.append("             }").append(Tools.lineSeparator);
@@ -275,13 +274,9 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                 , shade: 0.2 ").append(Tools.lineSeparator);
         sb.append("                 , yes: function () {").append(Tools.lineSeparator);
         sb.append("                      layer.closeAll();").append(Tools.lineSeparator);
-        sb.append("                      var idArray = new Array();").append(Tools.lineSeparator);
-        sb.append("                      for (var i = 0; i < data.length; i++){").append(Tools.lineSeparator);
-        sb.append("                          idArray[i] = data[i].id;").append(Tools.lineSeparator);
-        sb.append("                      }").append(Tools.lineSeparator);
         sb.append("                      $.ajax({").append(Tools.lineSeparator);
         sb.append("                          type: 'post',").append(Tools.lineSeparator);
-        sb.append("                          data: {ids: idArray.toString()},").append(Tools.lineSeparator);
+        sb.append("                          data: {ids: selectId},").append(Tools.lineSeparator);
         sb.append("                          url: '/web/").append(Tools.smallFirstChar(className)).append("/delete',")
                 .append(Tools.lineSeparator);
         sb.append("                          success: function (json) {").append(Tools.lineSeparator);
