@@ -51,10 +51,9 @@ public class CreateMapper extends CreateBase
         contentSB.append(Tools.lineSeparator);
         contentSB.append("import ").append(packageName).append(".mybatis.config.MyMapper;").append(Tools.lineSeparator);
         contentSB.append("import ").append(inClassName).append(";").append(Tools.lineSeparator);
-        //        contentSB.append("import org.apache.ibatis.annotations.Mapper;").append(Tools.lineSeparator);
         contentSB.append("import org.apache.ibatis.annotations.Param;").append(Tools.lineSeparator);
+        contentSB.append("import org.springframework.stereotype.Repository;").append(Tools.lineSeparator);
         contentSB.append("import java.util.List;").append(Tools.lineSeparator);
-        //        contentSB.append("import java.util.Map;").append(Tools.lineSeparator);
         contentSB.append(Tools.lineSeparator);
         contentSB.append("/**").append(Tools.lineSeparator);
         contentSB.append(" * ").append(Tools.lineSeparator);
@@ -63,6 +62,7 @@ public class CreateMapper extends CreateBase
         contentSB.append(" * Author:").append(author).append(Tools.lineSeparator);
         contentSB.append(" * Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
         contentSB.append(" */").append(Tools.lineSeparator);
+        contentSB.append("@Repository").append(Tools.lineSeparator);
         contentSB.append("public interface ").append(className).append("Mapper extends MyMapper<").append(className).append(">")
                 .append(Tools.lineSeparator);
         contentSB.append("{").append(Tools.lineSeparator);
