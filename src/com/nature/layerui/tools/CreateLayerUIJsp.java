@@ -59,22 +59,24 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("        <div id=\"").append(Tools.smallFirstChar(className))
                 .append("MenuBar\"> " + "<!--将所有的菜单聚集在一起.一块进行监听-->").append(Tools.lineSeparator);
         sb.append("            <div class=\"layui-row\">").append(Tools.lineSeparator);
-        sb.append("           <div class=\"layui-col-xs9\">").append(Tools.lineSeparator);
-        sb.append("               搜索：").append(Tools.lineSeparator);
-        sb.append("               <div class=\"layui-inline\" style=\"width:70%\">").append(Tools.lineSeparator);
-        sb.append("                  <input class=\"layui-input\" name=\"key\" id=\"searchKey\" " +
-                "autocomplete=\"off\" style=\"width:100%;\">").append(Tools.lineSeparator);
-        sb.append("               </div>").append(Tools.lineSeparator);
-        sb.append("               <button class=\"layui-btn\" data-method=\"search\" id=\"searchBtn\">搜索</button>")
-                .append(Tools.lineSeparator);
-        sb.append("           </div>").append(Tools.lineSeparator);
-        sb.append("                <div class=\"layui-col-xs3\">").append(Tools.lineSeparator);
+        sb.append("                <div class=\"layui-col-md6\">").append(Tools.lineSeparator);
         sb.append("                    <div class=\"layui-btn-group\">").append(Tools.lineSeparator);
         sb.append("                <button class=\"layui-btn\" data-method=\"new\">新建</button>").append(Tools.lineSeparator);
         sb.append("                <button class=\"layui-btn\" data-method=\"modify\">修改</button>").append(Tools.lineSeparator);
         sb.append("                <button class=\"layui-btn\" data-method=\"delete\">删除</button>").append(Tools.lineSeparator);
         sb.append("                    </div>").append(Tools.lineSeparator);
         sb.append("               </div>").append(Tools.lineSeparator);
+        sb.append("           <div class=\"layui-col-md6\" style=\"text-align:right\">").append(Tools.lineSeparator);
+        sb.append("               <div class=\"layui-inline\" style=\"width:70%\">").append(Tools.lineSeparator);
+        sb.append("                  <input class=\"layui-input\" name=\"key\" id=\"searchKey\" " +
+                "autocomplete=\"off\" style=\"width:100%;\">").append(Tools.lineSeparator);
+        sb.append("                    <i class=\"layui-icon\" id=\"keyDelete\" ").append(Tools.lineSeparator);
+        sb.append("                        style=\"position: absolute;right: 10px;top: 12px;cursor: pointer;display: " +
+                "none\">&#x1006;</i> ").append(Tools.lineSeparator);
+        sb.append("               </div>").append(Tools.lineSeparator);
+        sb.append("               <button class=\"layui-btn\" data-method=\"search\" id=\"searchBtn\">搜索</button>")
+                .append(Tools.lineSeparator);
+        sb.append("           </div>").append(Tools.lineSeparator);
         sb.append("       </div>").append(Tools.lineSeparator);
         sb.append("     </div>").append(Tools.lineSeparator);
         sb.append("     <table class=\"layui-hidden\" id=\"").append(Tools.smallFirstChar(className))
@@ -166,7 +168,7 @@ public class CreateLayerUIJsp extends CreateBase
                     .append("', title: '字段名', width: 80, sort: true}").append(Tools.lineSeparator);
         }
         sb.append("       ]]").append(Tools.lineSeparator);
-        sb.append("       , height: 'full-240'").append(Tools.lineSeparator);
+        sb.append("       , height: 'full-200'").append(Tools.lineSeparator);
         sb.append("       , limit: 40").append(Tools.lineSeparator);
         sb.append("       , page: true").append(Tools.lineSeparator);
         sb.append("     });").append(Tools.lineSeparator);
@@ -308,11 +310,23 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("     });").append(Tools.lineSeparator);
 
         sb.append("     // 搜索框 回车键触发  ").append(Tools.lineSeparator);
-        sb.append("     $('#searchKey').on('keyup',function (e){ ").append(Tools.lineSeparator);
+        sb.append("     $('#searchKey').on('keydown',function (e){ ").append(Tools.lineSeparator);
         sb.append("       if(e.keyCode == 13) { ").append(Tools.lineSeparator);
         sb.append("            $('#searchBtn').click(); ").append(Tools.lineSeparator);
         sb.append("       }").append(Tools.lineSeparator);
         sb.append("     });").append(Tools.lineSeparator);
+
+        sb.append("     $('#searchKey').on('keyup', function (e) {").append(Tools.lineSeparator);
+        sb.append("         if ($(this).val()) { $('#keyDelete').show(); } ").append(Tools.lineSeparator);
+        sb.append("         else { $('#keyDelete').hide(); } ").append(Tools.lineSeparator);
+        sb.append("     });").append(Tools.lineSeparator);
+        sb.append("     if ($('#searchKey').val()) { $('#keyDelete').show(); } ").append(Tools.lineSeparator);
+
+        sb.append("     $('#keyDelete').on('click', function (){ ").append(Tools.lineSeparator);
+        sb.append("         $('#keyDelete').hide(); ").append(Tools.lineSeparator);
+        sb.append("         $('#searchKey').val(''); ").append(Tools.lineSeparator);
+        sb.append("         $('#searchBtn').click(); ").append(Tools.lineSeparator);
+        sb.append("     }); ").append(Tools.lineSeparator);
 
         sb.append("     //form submit新建修改事件提交").append(Tools.lineSeparator);
         sb.append("     form.on('submit(").append(Tools.smallFirstChar(className)).append("Form)', function (data) {")
