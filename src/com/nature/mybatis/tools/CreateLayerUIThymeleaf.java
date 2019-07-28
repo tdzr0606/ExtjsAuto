@@ -54,7 +54,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("<body>").append(Tools.lineSeparator);
         sb.append("<div class=\"layui-layout layui-layout-admin\">").append(Tools.lineSeparator);
         sb.append("   <div th:replace=\"web/common :: menu\"></div>").append(Tools.lineSeparator);
-        sb.append("    <div class=\"layui-body\" style=\"padding:10px\">").append(Tools.lineSeparator);
+        sb.append("    <div class=\"layui-body\" style=\"padding:10px;min-height:600px;\">").append(Tools.lineSeparator);
         sb.append("         <blockquote class=\"layui-elem-quote\" style=\"padding-top:8px;padding-bottom:5px;\">").append(Tools.lineSeparator);
         sb.append("             <span class=\"layui-breadcrumb\">").append(Tools.lineSeparator);
         sb.append("                 <a href=\"/web/\"><i class=\"fa fa-flag\"></i>&nbsp;首页</a>").append(Tools.lineSeparator);

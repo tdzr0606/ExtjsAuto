@@ -25,17 +25,17 @@ public class LayerUIAutoMain
         // 数据库 密码
         String sqlPwd = "root";
         // 数据表名
-        String tableName = "web_notice";
+        String tableName = "sc_email_list";
         // 类名
-        String className = "Notice";
+        String className = "EmailList";
         // 项目名,一般和数据表名的前缀相同
-        String projectName = "web";
+        String projectName = "sc";
         // 类的基础包名
         String packageName = "com.wbkj.jet";
         // 创建人
         String author = "竺志伟";
         // jsp子文件夹
-        String jspPath = "web";
+        String jspPath = "sc";
 
         Date startDate = new Date();
         System.out.println("文件创建开始");

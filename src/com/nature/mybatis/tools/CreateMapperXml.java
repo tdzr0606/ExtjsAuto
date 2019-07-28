@@ -120,8 +120,9 @@ public class CreateMapperXml extends CreateBase
                     .append("\" parameterType=\"java.lang" + ".String\">").append(Tools.lineSeparator);
             fileContent.append("        select <include refid=\"basicColumn\"/> from ").append(tableName)
                     .append(Tools.lineSeparator);
-            fileContent.append("        <where>").append(Tools.lineSeparator);
+            fileContent.append("        where id > 0 ").append(Tools.lineSeparator);
             fileContent.append("            <if test=\"key != null and key != '' \">").append(Tools.lineSeparator);
+            fileContent.append("            and ( ").append(Tools.lineSeparator);
             int keySize = 0;
             for(Map.Entry<String, String> entry : tableContentMap.entrySet())
             {
@@ -140,8 +141,8 @@ public class CreateMapperXml extends CreateBase
                     keySize++;
                 }
             }
+            fileContent.append("            ) ").append(Tools.lineSeparator);
             fileContent.append("            </if>").append(Tools.lineSeparator);
-            fileContent.append("        </where>").append(Tools.lineSeparator);
             fileContent.append("        order by  id desc").append(Tools.lineSeparator);
             fileContent.append("    </select>").append(Tools.lineSeparator);
             fileContent.append(Tools.lineSeparator);

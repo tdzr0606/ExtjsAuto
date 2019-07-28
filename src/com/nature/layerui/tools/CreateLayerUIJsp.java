@@ -53,7 +53,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("<body>").append(Tools.lineSeparator);
         sb.append("<div class=\"layui-layout layui-layout-admin\">").append(Tools.lineSeparator);
         sb.append("    <jsp:include page=\"../inc/menu.jsp\" />").append(Tools.lineSeparator);
-        sb.append("    <div class=\"layui-body\" style=\"padding:10px\">").append(Tools.lineSeparator);
+        sb.append("    <div class=\"layui-body\" style=\"padding:10px;min-height:600px;\">").append(Tools.lineSeparator);
         sb.append("        <fieldset class=\"layui-elem-field layui-field-title\"><legend>菜单</legend></fieldset>")
                 .append(Tools.lineSeparator);
         sb.append("        <div id=\"").append(Tools.smallFirstChar(className))
