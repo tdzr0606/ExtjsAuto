@@ -100,14 +100,6 @@ public class CreateMapper extends CreateBase
         contentSB.append("    public int deleteById(@Param(value = \"id\") Integer id);").append(Tools.lineSeparator);
         contentSB.append(Tools.lineSeparator);
         contentSB.append("   /**").append(Tools.lineSeparator);
-        contentSB.append("    * 批量删除").append(Tools.lineSeparator);
-        contentSB.append("    * ").append(Tools.lineSeparator);
-        contentSB.append("    * Author:").append(author).append(Tools.lineSeparator);
-        contentSB.append("    * Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
-        contentSB.append("    */").append(Tools.lineSeparator);
-        contentSB.append("    public void deleteByIds(@Param(value = \"ids\") String[] ids);").append(Tools.lineSeparator);
-        contentSB.append(Tools.lineSeparator);
-        contentSB.append("   /**").append(Tools.lineSeparator);
         contentSB.append("    * 根据id查询数据").append(Tools.lineSeparator);
         contentSB.append("    * ").append(Tools.lineSeparator);
         contentSB.append("    * Author:").append(author).append(Tools.lineSeparator);

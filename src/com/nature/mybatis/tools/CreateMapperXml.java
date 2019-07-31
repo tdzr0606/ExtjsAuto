@@ -182,17 +182,6 @@ public class CreateMapperXml extends CreateBase
             fileContent.append("    </delete>").append(Tools.lineSeparator);
             fileContent.append(Tools.lineSeparator);
 
-            fileContent.append("    <!-- 批量删除-->").append(Tools.lineSeparator);
-            fileContent.append("    <delete id=\"deleteByIds\" parameterType=\"java.util.Arrays\">")
-                    .append(Tools.lineSeparator);
-            fileContent.append("        DELETE FROM ").append(tableName).append(" WHERE id in").append(Tools.lineSeparator);
-            fileContent.append("        <foreach collection=\"ids\" index=\"index\" item=\"item\" open=\"(\" separator=\",\" " +
-                    "close=\")\">").append(Tools.lineSeparator);
-            fileContent.append("            ${item} ").append(Tools.lineSeparator);
-            fileContent.append("        </foreach>").append(Tools.lineSeparator);
-            fileContent.append("    </delete>").append(Tools.lineSeparator);
-            fileContent.append(Tools.lineSeparator);
-
             fileContent.append("</mapper>");
             fileContent.append(Tools.lineSeparator);
         }

@@ -278,7 +278,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                      layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                      $.ajax({").append(Tools.lineSeparator);
         sb.append("                          type: 'post',").append(Tools.lineSeparator);
-        sb.append("                          data: {ids: selectId},").append(Tools.lineSeparator);
+        sb.append("                          data: {id: selectId},").append(Tools.lineSeparator);
         sb.append("                          url: '/web/").append(Tools.smallFirstChar(className)).append("/delete',")
                 .append(Tools.lineSeparator);
         sb.append("                          success: function (json) {").append(Tools.lineSeparator);
@@ -336,6 +336,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("     //form submit新建修改事件提交").append(Tools.lineSeparator);
         sb.append("     form.on('submit(").append(Tools.smallFirstChar(className)).append("Form)', function (data) {")
                 .append(Tools.lineSeparator);
+        sb.append("        var loadIndex = layer.load(1); ").append(Tools.lineSeparator);
         sb.append("        var actionUrl = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/\" + $" + "('#actionUrl').val();").append(Tools.lineSeparator);
         sb.append("        $.ajax({").append(Tools.lineSeparator);
@@ -344,6 +345,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
                 .append(Tools.lineSeparator);
         sb.append("            url: actionUrl,").append(Tools.lineSeparator);
         sb.append("            success: function (json) {").append(Tools.lineSeparator);
+        sb.append("               layer.close(loadIndex); ").append(Tools.lineSeparator);
         sb.append("               if (json.success) {").append(Tools.lineSeparator);
         sb.append("                  layer.alert(json.msg, {closeBtn: 0}, function () {").append(Tools.lineSeparator);
         sb.append("                      layer.closeAll();").append(Tools.lineSeparator);
@@ -356,6 +358,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("               }").append(Tools.lineSeparator);
         sb.append("            },").append(Tools.lineSeparator);
         sb.append("            error: function (json) {").append(Tools.lineSeparator);
+        sb.append("               layer.close(loadIndex); ").append(Tools.lineSeparator);
         sb.append("               layer.alert(json.responseJSON.message, {closeBtn: 0}, function () {").append(Tools.lineSeparator);
         sb.append("                  layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                  window.location.reload();").append(Tools.lineSeparator);

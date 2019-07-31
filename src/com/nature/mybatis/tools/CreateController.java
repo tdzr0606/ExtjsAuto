@@ -21,8 +21,9 @@ public class CreateController extends CreateBase
     {
         super.author = author;
         super.className = className;
-        super.filePath = filePath + Tools.pathSeparator + "java" + Tools.pathSeparator + "controller" + Tools.pathSeparator +
-                projectName;
+        super.filePath =
+                filePath + Tools.pathSeparator + "java" + Tools.pathSeparator + "controller" + Tools.pathSeparator +
+                        projectName;
         this.packageName = packageName;
         this.projectName = projectName;
         this.jspPath = jspPath;
@@ -47,20 +48,22 @@ public class CreateController extends CreateBase
         sb.append("package ").append(packageName).append(".controller.").append(projectName).append(";")
                 .append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
-        sb.append("import ").append(packageName).append(".controller.system.BaseController;").append(Tools.lineSeparator);
+        sb.append("import ").append(packageName).append(".controller.system.BaseController;")
+                .append(Tools.lineSeparator);
         sb.append("import ").append(packageName).append(".component.system.CommonResult;").append(Tools.lineSeparator);
         sb.append("import ").append(packageName).append(".component.system.Page;").append(Tools.lineSeparator);
         sb.append("import org.springframework.beans.factory.annotation.Autowired;").append(Tools.lineSeparator);
         sb.append("import org.springframework.stereotype.Controller;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.RequestMapping;").append(Tools.lineSeparator);
         sb.append("import org.springframework.http.MediaType;").append(Tools.lineSeparator);
+        sb.append("import org.springframework.web.bind.annotation.RequestMethod;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.RequestParam;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.bind.annotation.ResponseBody;").append(Tools.lineSeparator);
         sb.append("import org.springframework.web.servlet.ModelAndView;").append(Tools.lineSeparator);
         sb.append("import ").append(packageName).append(".service.").append(projectName).append(".").append(className)
                 .append("Service").append(";").append(Tools.lineSeparator);
-        sb.append("import ").append(packageName).append(".pojo.").append(projectName).append(".").append(className).append(";")
-                .append(Tools.lineSeparator);
+        sb.append("import ").append(packageName).append(".pojo.").append(projectName).append(".").append(className)
+                .append(";").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append("/**").append(Tools.lineSeparator);
         sb.append(" * ").append(Tools.lineSeparator);
@@ -70,11 +73,12 @@ public class CreateController extends CreateBase
         sb.append(" * Date:").append(Tools.getNowDateTime()).append(Tools.lineSeparator);
         sb.append(" */").append(Tools.lineSeparator);
         sb.append("@Controller").append(Tools.lineSeparator);
-        sb.append("public class ").append(className).append("Controller extends BaseController").append(Tools.lineSeparator);
+        sb.append("public class ").append(className).append("Controller extends BaseController")
+                .append(Tools.lineSeparator);
         sb.append("{").append(Tools.lineSeparator);
         sb.append("    @Autowired").append(Tools.lineSeparator);
-        sb.append("    ").append(className).append("Service ").append(Tools.smallFirstChar(className)).append("Service;")
-                .append(Tools.lineSeparator);
+        sb.append("    ").append(className).append("Service ").append(Tools.smallFirstChar(className))
+                .append("Service;").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append("    /**").append(Tools.lineSeparator);
         sb.append("      * 进入页面").append(Tools.lineSeparator);
@@ -86,8 +90,8 @@ public class CreateController extends CreateBase
         sb.append("    public ModelAndView toPage()").append(Tools.lineSeparator);
         sb.append("    {").append(Tools.lineSeparator);
         sb.append("         modelAndView = new ModelAndView();").append(Tools.lineSeparator);
-        sb.append("         modelAndView.setViewName(\"").append(jspPath).append("/").append(Tools.smallFirstChar(className))
-                .append("Info\");").append(Tools.lineSeparator);
+        sb.append("         modelAndView.setViewName(\"").append(jspPath).append("/")
+                .append(Tools.smallFirstChar(className)).append("Info\");").append(Tools.lineSeparator);
         sb.append("         return modelAndView;").append(Tools.lineSeparator);
         sb.append("    }").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
@@ -100,18 +104,20 @@ public class CreateController extends CreateBase
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
         sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
-                .append("/list\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
+                .append("/list\", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)")
+                .append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public Page<").append(className).append("> findPage(").append(Tools.lineSeparator);
-        sb.append("            @RequestParam(value = \"rows\", required = true, defaultValue = \"40\") Integer " + "rows,")
-                .append(Tools.lineSeparator);
-        sb.append("            @RequestParam(value = \"page\", required = true, defaultValue = \"1\") Integer " + "page,")
+        sb.append("            @RequestParam(value = \"rows\", required = true, defaultValue = \"40\") Integer " +
+                "rows,").append(Tools.lineSeparator);
+        sb.append(
+                "            @RequestParam(value = \"page\", required = true, defaultValue = \"1\") Integer " + "page,")
                 .append(Tools.lineSeparator);
         sb.append("            @RequestParam(value = \"key\", required = false, defaultValue = \"\") String key)")
                 .append(Tools.lineSeparator);
         sb.append("    {").append(Tools.lineSeparator);
-        sb.append("        return ").append(Tools.smallFirstChar(className)).append("Service.listPage(page, rows, key);")
-                .append(Tools.lineSeparator);
+        sb.append("        return ").append(Tools.smallFirstChar(className))
+                .append("Service.listPage(page, rows, key);").append(Tools.lineSeparator);
         sb.append("    }").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append("    /**").append(Tools.lineSeparator);
@@ -121,7 +127,8 @@ public class CreateController extends CreateBase
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
         sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
-                .append("/new\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
+                .append("/new\", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)")
+                .append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult add(").append(className).append(" ").append(Tools.smallFirstChar(className))
                 .append(")").append(Tools.lineSeparator);
@@ -138,10 +145,11 @@ public class CreateController extends CreateBase
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
         sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
-                .append("/modify\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
+                .append("/modify\", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)")
+                .append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
-        sb.append("    public CommonResult modify(").append(className).append(" ").append(Tools.smallFirstChar(className))
-                .append(")").append(Tools.lineSeparator);
+        sb.append("    public CommonResult modify(").append(className).append(" ")
+                .append(Tools.smallFirstChar(className)).append(")").append(Tools.lineSeparator);
         sb.append("    {").append(Tools.lineSeparator);
         sb.append("        return resultBoolWrapper(").append(Tools.smallFirstChar(className)).append("Service.modify(")
                 .append(Tools.smallFirstChar(className)).append("), \"信息修改成功\", \"信息修改失败\", null);")
@@ -155,15 +163,16 @@ public class CreateController extends CreateBase
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
         sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
-                .append("/delete\",produces = MediaType.APPLICATION_JSON_VALUE)").append(Tools.lineSeparator);
+                .append("/delete\", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)")
+                .append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public CommonResult delete(").append(Tools.lineSeparator);
-        sb.append("            @RequestParam(value = \"ids\", required = true, defaultValue = \"0\") String ids)")
+        sb.append("            @RequestParam(value = \"id\", required = true, defaultValue = \"0\") Integer id)")
                 .append(Tools.lineSeparator);
         sb.append("    {").append(Tools.lineSeparator);
-        sb.append("         ").append(Tools.smallFirstChar(className)).append("Service.deleteByIds(ids.split(\",\"));")
+        sb.append("        return resultBoolWrapper(").append(Tools.smallFirstChar(className))
+                .append("Service.deleteById(id)").append(", \"信息删除成功\", \"信息删除失败\", null);")
                 .append(Tools.lineSeparator);
-        sb.append("        return resultBoolWrapper(true, \"信息删除成功\", \"信息删除失败\", null);").append(Tools.lineSeparator);
         sb.append("    }").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append("    /**").append(Tools.lineSeparator);
@@ -179,8 +188,8 @@ public class CreateController extends CreateBase
         sb.append("            @RequestParam(value = \"id\", required = true, defaultValue = \"0\") Integer id)")
                 .append(Tools.lineSeparator);
         sb.append("    {").append(Tools.lineSeparator);
-        sb.append("        return resultBoolWrapper(true, \"信息装载成功\", \"信息装载失败\", ").append(Tools.smallFirstChar(className))
-                .append("Service.findById(id));").append(Tools.lineSeparator);
+        sb.append("        return resultBoolWrapper(true, \"信息装载成功\", \"信息装载失败\", ")
+                .append(Tools.smallFirstChar(className)).append("Service.findById(id));").append(Tools.lineSeparator);
         sb.append("    }").append(Tools.lineSeparator);
         sb.append("}").append(Tools.lineSeparator);
         return sb.toString();

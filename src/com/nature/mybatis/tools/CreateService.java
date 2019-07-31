@@ -161,17 +161,6 @@ public class CreateService extends CreateBase
         sb.append("    }").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
         sb.append("    /**").append(Tools.lineSeparator);
-        sb.append("     * 批量删除").append(Tools.lineSeparator);
-        sb.append("     *").append(Tools.lineSeparator);
-        sb.append("     * @param ids").append(Tools.lineSeparator);
-        sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    public void deleteByIds(String[] ids)").append(Tools.lineSeparator);
-        sb.append("    {").append(Tools.lineSeparator);
-        sb.append("        ").append(Tools.smallFirstChar(className)).append("Mapper.deleteByIds(ids);")
-                .append(Tools.lineSeparator);
-        sb.append("    }").append(Tools.lineSeparator);
-        sb.append(Tools.lineSeparator);
-        sb.append("    /**").append(Tools.lineSeparator);
         sb.append("     * 获取单一数据").append(Tools.lineSeparator);
         sb.append("     *").append(Tools.lineSeparator);
         sb.append("     * @param id").append(Tools.lineSeparator);
