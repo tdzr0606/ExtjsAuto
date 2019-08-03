@@ -25,9 +25,9 @@ public class MyBatisAutoMain
         // 数据库 密码
         String sqlPwd = "root";
         // 数据表名
-        String tableName = "web_modules";
+        String tableName = "web_modules_role";
         // 类名
-        String className = "Modules";
+        String className = "ModulesRole";
         // 项目名,一般和数据表名的前缀相同
         String projectName = "web";
         // 类的基础包名

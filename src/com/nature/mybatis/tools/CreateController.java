@@ -104,7 +104,7 @@ public class CreateController extends CreateBase
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
         sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
-                .append("/list\", method = RequestMethod.POST,produces = MediaType.APPLICATION_JSON_VALUE)")
+                .append("/list\",produces = MediaType.APPLICATION_JSON_VALUE)")
                 .append(Tools.lineSeparator);
         sb.append("    @ResponseBody").append(Tools.lineSeparator);
         sb.append("    public Page<").append(className).append("> findPage(").append(Tools.lineSeparator);
@@ -159,7 +159,7 @@ public class CreateController extends CreateBase
         sb.append("    /**").append(Tools.lineSeparator);
         sb.append("     * 删除信息").append(Tools.lineSeparator);
         sb.append("     *").append(Tools.lineSeparator);
-        sb.append("     * @param ids").append(Tools.lineSeparator);
+        sb.append("     * @param id").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
         sb.append("    @RequestMapping(value = \"/web/").append(Tools.smallFirstChar(className))
