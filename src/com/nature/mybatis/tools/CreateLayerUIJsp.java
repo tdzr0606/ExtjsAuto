@@ -58,7 +58,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("        <fieldset class=\"layui-elem-field layui-field-title\"><legend>菜单</legend></fieldset>")
                 .append(Tools.lineSeparator);
         sb.append("        <div id=\"").append(Tools.smallFirstChar(className))
-                .append("MenuBar\"> " + "<!--将所有的菜单聚集在一起.一块进行监听-->").append(Tools.lineSeparator);
+                .append("MenuBar\">").append(Tools.lineSeparator);
         sb.append("            <div class=\"layui-row\">").append(Tools.lineSeparator);
         sb.append("                <div class=\"layui-col-xs6\">").append(Tools.lineSeparator);
         sb.append("                    <div class=\"layui-btn-group\">").append(Tools.lineSeparator);
