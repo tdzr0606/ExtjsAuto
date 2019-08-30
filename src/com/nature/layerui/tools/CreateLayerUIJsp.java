@@ -331,7 +331,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("     //form submit新建修改事件提交").append(Tools.lineSeparator);
         sb.append("     form.on('submit(").append(Tools.smallFirstChar(className)).append("Form)', function (data) {")
                 .append(Tools.lineSeparator);
-        sb.append("        var loadIndex = layer.load(1); ").append(Tools.lineSeparator);
+        sb.append("        var loadIndex = layer.load(2); ").append(Tools.lineSeparator);
         sb.append("        var actionUrl = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/\" + $" + "('#actionUrl').val();").append(Tools.lineSeparator);
         sb.append("        $.ajax({").append(Tools.lineSeparator);

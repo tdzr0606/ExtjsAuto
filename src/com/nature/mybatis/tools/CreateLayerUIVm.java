@@ -215,11 +215,13 @@ public class CreateLayerUIVm extends CreateBase
         sb.append("                return false;").append(Tools.lineSeparator);
         sb.append("             }").append(Tools.lineSeparator);
         sb.append("             else {").append(Tools.lineSeparator);
+        sb.append("                var loadIndex = layer.load(2); ").append(Tools.lineSeparator);
         sb.append("                $.ajax({").append(Tools.lineSeparator);
         sb.append("                    type: 'get',").append(Tools.lineSeparator);
         sb.append("                    url: '/web/").append(Tools.smallFirstChar(className))
                 .append("/info?id=' + selectId + '&sessionId='+new Date().getTime(),").append(Tools.lineSeparator);
         sb.append("                    success: function (json) {").append(Tools.lineSeparator);
+        sb.append("                       layer.close(loadIndex);").append(Tools.lineSeparator);
         sb.append("                       if (json.success){").append(Tools.lineSeparator);
         sb.append("                           form.loadData(json.data, '").append(Tools.smallFirstChar(className))
                 .append("Form');").append(Tools.lineSeparator);
@@ -269,12 +271,14 @@ public class CreateLayerUIVm extends CreateBase
         sb.append("                 , shade: 0.2 ").append(Tools.lineSeparator);
         sb.append("                 , yes: function () {").append(Tools.lineSeparator);
         sb.append("                      layer.closeAll();").append(Tools.lineSeparator);
+        sb.append("                      var loadIndex = layer.load(2); ").append(Tools.lineSeparator);
         sb.append("                      $.ajax({").append(Tools.lineSeparator);
         sb.append("                          type: 'post',").append(Tools.lineSeparator);
         sb.append("                          data: {id: selectId},").append(Tools.lineSeparator);
         sb.append("                          url: '/web/").append(Tools.smallFirstChar(className)).append("/delete',")
                 .append(Tools.lineSeparator);
         sb.append("                          success: function (json) {").append(Tools.lineSeparator);
+        sb.append("                              layer.close(loadIndex);").append(Tools.lineSeparator);
         sb.append("                              if (json.success) {").append(Tools.lineSeparator);
         sb.append("                                  layer.alert(json.msg, {closeBtn: 0}, function () {")
                 .append(Tools.lineSeparator);
@@ -329,7 +333,7 @@ public class CreateLayerUIVm extends CreateBase
         sb.append("     //form submit新建修改事件提交").append(Tools.lineSeparator);
         sb.append("     form.on('submit(").append(Tools.smallFirstChar(className)).append("Form)', function (data) {")
                 .append(Tools.lineSeparator);
-        sb.append("        var loadIndex = layer.load(1); ").append(Tools.lineSeparator);
+        sb.append("        var loadIndex = layer.load(2); ").append(Tools.lineSeparator);
         sb.append("        var actionUrl = \"/web/").append(Tools.smallFirstChar(className))
                 .append("/\" + $" + "('#actionUrl').val();").append(Tools.lineSeparator);
         sb.append("        $.ajax({").append(Tools.lineSeparator);
