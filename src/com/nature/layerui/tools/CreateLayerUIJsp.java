@@ -175,9 +175,11 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("     //触发事件").append(Tools.lineSeparator);
         sb.append("     var active = {").append(Tools.lineSeparator);
         sb.append("         search: function () {").append(Tools.lineSeparator);
+        sb.append("             var loadIndex=layer.load(2);").append(Tools.lineSeparator);
         sb.append("             var keyValue = $('#searchKey').val();").append(Tools.lineSeparator);
         sb.append("             ").append(Tools.smallFirstChar(className))
                 .append("Table.reload({where: {key: " + "keyValue},page:{curr:1}});").append(Tools.lineSeparator);
+        sb.append("             layer.close(loadIndex);");
         sb.append("         }").append(Tools.lineSeparator);
         sb.append("         , new: function () {").append(Tools.lineSeparator);
         sb.append("              $('#").append(Tools.smallFirstChar(className)).append("Form')[0].reset();")
@@ -211,11 +213,13 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("             }").append(Tools.lineSeparator);
         sb.append("             else {").append(Tools.lineSeparator);
         sb.append("                var id = data[0].id;").append(Tools.lineSeparator);
+        sb.append("                var loadIndex = layer.load(2); ").append(Tools.lineSeparator);
         sb.append("                $.ajax({").append(Tools.lineSeparator);
         sb.append("                    type: 'get',").append(Tools.lineSeparator);
         sb.append("                    url: '/web/").append(Tools.smallFirstChar(className))
                 .append("/info?id=' + id + '&sessionId='+new Date().getTime(),").append(Tools.lineSeparator);
         sb.append("                    success: function (json) {").append(Tools.lineSeparator);
+        sb.append("                       layer.close(loadIndex);").append(Tools.lineSeparator);
         sb.append("                       if (json.success){").append(Tools.lineSeparator);
         sb.append("                           form.loadData(json.data, '").append(Tools.smallFirstChar(className))
                 .append("Form');").append(Tools.lineSeparator);
@@ -271,12 +275,14 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                      for (var i = 0; i < data.length; i++){").append(Tools.lineSeparator);
         sb.append("                          idArray[i] = data[i].id;").append(Tools.lineSeparator);
         sb.append("                      }").append(Tools.lineSeparator);
+        sb.append("                      var loadIndex = layer.load(2); ").append(Tools.lineSeparator);
         sb.append("                      $.ajax({").append(Tools.lineSeparator);
         sb.append("                          type: 'post',").append(Tools.lineSeparator);
         sb.append("                          data: {ids: idArray.toString()},").append(Tools.lineSeparator);
         sb.append("                          url: '/web/").append(Tools.smallFirstChar(className)).append("/delete',")
                 .append(Tools.lineSeparator);
         sb.append("                          success: function (json) {").append(Tools.lineSeparator);
+        sb.append("                              layer.close(loadIndex);").append(Tools.lineSeparator);
         sb.append("                              if (json.success) {").append(Tools.lineSeparator);
         sb.append("                                  layer.alert(json.msg, {closeBtn: 0}, function () {")
                 .append(Tools.lineSeparator);

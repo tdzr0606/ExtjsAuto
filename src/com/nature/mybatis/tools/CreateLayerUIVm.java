@@ -185,10 +185,12 @@ public class CreateLayerUIVm extends CreateBase
         sb.append("     //触发事件").append(Tools.lineSeparator);
         sb.append("     var active = {").append(Tools.lineSeparator);
         sb.append("         search: function () {").append(Tools.lineSeparator);
+        sb.append("             var loadIndex=layer.load(2);").append(Tools.lineSeparator);
         sb.append("             var keyValue = $('#searchKey').val();").append(Tools.lineSeparator);
         sb.append("             ").append(Tools.smallFirstChar(className))
                 .append("Table.reload({where: {key: " + "keyValue},page:{curr:1}});").append(Tools.lineSeparator);
         sb.append("              selectId = 0;").append(Tools.lineSeparator);
+        sb.append("             layer.close(loadIndex);");
         sb.append("         }").append(Tools.lineSeparator);
         sb.append("         , new: function () {").append(Tools.lineSeparator);
         sb.append("              $('#").append(Tools.smallFirstChar(className)).append("Form')[0].reset();")
