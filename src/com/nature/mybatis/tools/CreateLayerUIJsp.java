@@ -198,7 +198,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("              layer.open({").append(Tools.lineSeparator);
         sb.append("                 type: 1").append(Tools.lineSeparator);
         sb.append("                 , title: \"新建\"").append(Tools.lineSeparator);
-        sb.append("                 , closeBtn: 1").append(Tools.lineSeparator);
+        sb.append("                 , closeBtn: 2").append(Tools.lineSeparator);
         sb.append("                 , area: '650px;'").append(Tools.lineSeparator);
         sb.append("                 , shade: 0.2").append(Tools.lineSeparator);
         sb.append("                 , shadeClose: false").append(Tools.lineSeparator);
@@ -230,7 +230,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("                           layer.open({").append(Tools.lineSeparator);
         sb.append("                               type: 1").append(Tools.lineSeparator);
         sb.append("                               , title: \"修改\"").append(Tools.lineSeparator);
-        sb.append("                               , closeBtn: 1").append(Tools.lineSeparator);
+        sb.append("                               , closeBtn: 2").append(Tools.lineSeparator);
         sb.append("                               , area: '650px;'").append(Tools.lineSeparator);
         sb.append("                               , shade: 0.2").append(Tools.lineSeparator);
         sb.append("                               , shadeClose: false").append(Tools.lineSeparator);
