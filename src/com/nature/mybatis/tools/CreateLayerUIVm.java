@@ -172,7 +172,7 @@ public class CreateLayerUIVm extends CreateBase
                     .append("', title: '字段名', width: 80, sort: true}").append(Tools.lineSeparator);
         }
         sb.append("       ]]").append(Tools.lineSeparator);
-        sb.append("       , height: 'full-200'").append(Tools.lineSeparator);
+        sb.append("       , height: 'full-240'").append(Tools.lineSeparator);
         sb.append("       , limit: 40").append(Tools.lineSeparator);
         sb.append("       , page: true").append(Tools.lineSeparator);
         sb.append("     });").append(Tools.lineSeparator);
