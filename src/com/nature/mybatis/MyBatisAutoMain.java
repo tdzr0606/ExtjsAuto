@@ -25,11 +25,11 @@ public class MyBatisAutoMain
         // 数据库 密码
         String sqlPwd = "root";
         // 数据表名
-        String tableName = "web_app";
+        String tableName = "sdk_sdk";
         // 类名
-        String className = "App";
+        String className = "Sdk";
         // 项目名,一般和数据表名的前缀相同
-        String projectName = "web";
+        String projectName = "sdk";
         // 类的基础包名
         String packageName = "com.uni2k.jet";
         // 创建人
