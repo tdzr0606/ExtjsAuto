@@ -83,6 +83,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("     <table class=\"layui-hidden\" id=\"").append(Tools.smallFirstChar(className))
                 .append("Table\" " + "lay-filter=\"").append(Tools.smallFirstChar(className)).append("Table\"></table>")
                 .append(Tools.lineSeparator);
+        sb.append("     <div class=\"layui-footer\">© uni2k.com</div>").append(Tools.lineSeparator);
         sb.append("  </div>").append(Tools.lineSeparator);
         sb.append("</div>").append(Tools.lineSeparator);
         sb.append(Tools.lineSeparator);
