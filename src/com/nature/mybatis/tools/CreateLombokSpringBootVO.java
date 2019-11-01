@@ -64,12 +64,12 @@ public class CreateLombokSpringBootVO extends CreateBase
             String sql = " select * from " + tableName;
             ResultSetMetaData rsmd = statement.executeQuery(sql).getMetaData();
             int columnCount = rsmd.getColumnCount();
-            for(int i = 0; i < columnCount; i++)
+            for (int i = 0; i < columnCount; i++)
             {
                 tableContentMap.put(rsmd.getColumnName(i + 1), rsmd.getColumnTypeName(i + 1));
             }
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -110,7 +110,7 @@ public class CreateLombokSpringBootVO extends CreateBase
             fileContent.append(propertyContent);
             fileContent.append("}").append(Tools.lineSeparator);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
@@ -130,7 +130,7 @@ public class CreateLombokSpringBootVO extends CreateBase
      */
     private String createPropertyContent()
     {
-        if(tableContentMap.isEmpty())
+        if (tableContentMap.isEmpty())
         {
             return "";
         }
@@ -138,45 +138,53 @@ public class CreateLombokSpringBootVO extends CreateBase
 
         String fieldName;
         String fieldType;
-        for(Entry<String, String> entry : tableContentMap.entrySet())
+        for (Entry<String, String> entry : tableContentMap.entrySet())
         {
             fieldName = entry.getKey();
             fieldType = entry.getValue();
 
-            if(Tools.changeFieldType2JavaType(fieldType).equals("Date"))
+            if (Tools.changeFieldType2JavaType(fieldType).equals("Date"))
             {
-                if(dateCount == 0)
+                if (dateCount == 0)
                 {
-                    importSB.append("import com.fasterxml.jackson.annotation.JsonFormat;").append(Tools.lineSeparator);
-                    importSB.append("import org.springframework.format.annotation.DateTimeFormat;").append(Tools.lineSeparator);
+                    importSB.append("import com.fasterxml.jackson.annotation.JsonFormat;")
+                            .append(Tools.lineSeparator);
+                    importSB.append("import org.springframework.format.annotation.DateTimeFormat;")
+                            .append(Tools.lineSeparator);
                     importSB.append("import java.util.Date;").append(Tools.lineSeparator);
                 }
-                propertySB.append("   @JsonFormat(pattern = \"yyyy-MM-dd\") ").append(Tools.lineSeparator);
+                propertySB.append("   @JsonFormat(pattern = \"yyyy-MM-dd\", timezone = \"GMT+8\") ")
+                        .append(Tools.lineSeparator);
                 propertySB.append("   @DateTimeFormat(pattern = \"yyyy-MM-dd\") ").append(Tools.lineSeparator);
                 dateCount++;
             }
-            else if(Tools.changeFieldType2JavaType(fieldType).equals("Timestamp"))
+            else if (Tools.changeFieldType2JavaType(fieldType).equals("Timestamp"))
             {
-                if(dateTimeCount == 0)
+                if (dateTimeCount == 0)
                 {
-                    importSB.append("import com.fasterxml.jackson.annotation.JsonFormat;").append(Tools.lineSeparator);
-                    importSB.append("import org.springframework.format.annotation.DateTimeFormat;").append(Tools.lineSeparator);
+                    importSB.append("import com.fasterxml.jackson.annotation.JsonFormat;")
+                            .append(Tools.lineSeparator);
+                    importSB.append("import org.springframework.format.annotation.DateTimeFormat;")
+                            .append(Tools.lineSeparator);
                     importSB.append("import java.sql.Timestamp;").append(Tools.lineSeparator);
                 }
-                propertySB.append("   @JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\") ").append(Tools.lineSeparator);
-                propertySB.append("   @DateTimeFormat(pattern = \"yyyy-MM-dd HH:mm:ss\") ").append(Tools.lineSeparator);
+                propertySB.append("   @JsonFormat(pattern = \"yyyy-MM-dd HH:mm:ss\", timezone = \"GMT+8\") ")
+                        .append(Tools.lineSeparator);
+                propertySB.append("   @DateTimeFormat(pattern = \"yyyy-MM-dd HH:mm:ss\") ")
+                        .append(Tools.lineSeparator);
                 dateTimeCount++;
             }
-            else if(Tools.changeFieldType2JavaType(fieldType).equals("BigDecimal"))
+            else if (Tools.changeFieldType2JavaType(fieldType).equals("BigDecimal"))
             {
-                if(bigDecimalCount == 0)
+                if (bigDecimalCount == 0)
                 {
                     importSB.append("import java.math.BigDecimal;").append(Tools.lineSeparator);
                 }
                 bigDecimalCount++;
             }
             propertySB.append("    private ").append(Tools.changeFieldType2JavaType(fieldType)).append(" ")
-                    .append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(";").append(Tools.lineSeparator);
+                    .append(Tools.changeFieldName2JavaPropertyFieldName(fieldName)).append(";")
+                    .append(Tools.lineSeparator);
         }
         propertySB.append(Tools.lineSeparator);
         return propertySB.toString();
