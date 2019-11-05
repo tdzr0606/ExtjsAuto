@@ -100,6 +100,9 @@ public class Tools
             case "INT UNSIGNED":
                 javaType = "Integer";
                 break;
+            case "BIGINT":
+                javaType = "Long";
+                break;
             case "DECIMAL":
                 javaType = "BigDecimal";
                 break;
@@ -136,6 +139,8 @@ public class Tools
             case "INT UNSIGNED":
                 extjsModelType = "int";
                 break;
+            case "BIGINT":
+                extjsModelType = "long";
             case "DECIMAL":
                 extjsModelType = "float";
                 break;
