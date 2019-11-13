@@ -166,7 +166,7 @@ public class CreateService extends CreateBase
         sb.append("     * @param id").append(Tools.lineSeparator);
         sb.append("     * @return").append(Tools.lineSeparator);
         sb.append("     */").append(Tools.lineSeparator);
-        sb.append("    public ").append(className).append(" findById(int id)").append(Tools.lineSeparator);
+        sb.append("    public ").append(className).append(" findById(Integer id)").append(Tools.lineSeparator);
         sb.append("    {").append(Tools.lineSeparator);
         sb.append("        return ").append(Tools.smallFirstChar(className)).append("Mapper.findById(id);")
                 .append(Tools.lineSeparator);
