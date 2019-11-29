@@ -70,7 +70,7 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("                    <div class=\"layui-btn-group\">").append(Tools.lineSeparator);
         sb.append("                         <button class=\"layui-btn\" data-method=\"new\">新建</button> ")
                 .append(Tools.lineSeparator);
-        sb.append("                         <button class=\"layui-btn\" data-method=\"modify\">修改</button>")
+        sb.append("                         <button class=\"layui-btn\" id=\"modifyMenuBtn\" data-method=\"modify\">修改</button>")
                 .append(Tools.lineSeparator);
         sb.append("                         <button class=\"layui-btn\" data-method=\"delete\">删除</button>")
                 .append(Tools.lineSeparator);
@@ -188,6 +188,12 @@ public class CreateLayerUIThymeleaf extends CreateBase
         sb.append("     table.on('row(").append(Tools.smallFirstChar(className)).append("Table)', function(obj){").append(Tools.lineSeparator);
         sb.append("         selectId = obj.data.id;").append(Tools.lineSeparator);
         sb.append("         obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');").append(Tools.lineSeparator);
+        sb.append("     });").append(Tools.lineSeparator);
+
+        sb.append("     table.on('rowDouble(").append(Tools.smallFirstChar(className)).append("Table)', function(obj){").append(Tools.lineSeparator);
+        sb.append("         selectId = obj.data.id;").append(Tools.lineSeparator);
+        sb.append("         obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');").append(Tools.lineSeparator);
+        sb.append("         $('#modifyMenuBtn').click();").append(Tools.lineSeparator);
         sb.append("     });").append(Tools.lineSeparator);
 
         sb.append("     //触发事件").append(Tools.lineSeparator);
