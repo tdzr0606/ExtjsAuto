@@ -101,6 +101,7 @@ public class Tools
                 javaType = "Integer";
                 break;
             case "BIGINT":
+            case "BIGINT UNSIGNED":
                 javaType = "Long";
                 break;
             case "DECIMAL":
@@ -140,6 +141,7 @@ public class Tools
                 extjsModelType = "int";
                 break;
             case "BIGINT":
+            case "BIGINT UNSIGNED":
                 extjsModelType = "long";
             case "DECIMAL":
                 extjsModelType = "float";
