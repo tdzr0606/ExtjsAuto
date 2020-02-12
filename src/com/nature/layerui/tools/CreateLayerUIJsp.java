@@ -288,7 +288,7 @@ public class CreateLayerUIJsp extends CreateBase
                 .append(Tools.lineSeparator);
         sb.append("                                      layer.closeAll();").append(Tools.lineSeparator);
         sb.append("                                      ").append(Tools.smallFirstChar(className))
-                .append("Table" + ".reload(); ").append(Tools.lineSeparator);
+                .append("Table" + ".reload({page:{curr:1}}); ").append(Tools.lineSeparator);
         sb.append("                                  });").append(Tools.lineSeparator);
         sb.append("                              }").append(Tools.lineSeparator);
         sb.append("                              else {").append(Tools.lineSeparator);
@@ -350,7 +350,7 @@ public class CreateLayerUIJsp extends CreateBase
         sb.append("               if (json.success) {").append(Tools.lineSeparator);
         sb.append("                  layer.alert(json.msg, {closeBtn: 0}, function () {").append(Tools.lineSeparator);
         sb.append("                      layer.closeAll();").append(Tools.lineSeparator);
-        sb.append("                      ").append(Tools.smallFirstChar(className)).append("Table.reload(); ")
+        sb.append("                      ").append(Tools.smallFirstChar(className)).append("Table.reload({page:{curr:1}}); ")
                 .append(Tools.lineSeparator);
         sb.append("                  });").append(Tools.lineSeparator);
         sb.append("               }").append(Tools.lineSeparator);
